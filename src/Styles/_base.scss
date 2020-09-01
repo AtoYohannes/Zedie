@@ -31,14 +31,12 @@ button,
     font-family: Belleza, Poppins, Roboto, Raleway, "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
 }
-
 .cr-app {
     display: flex;
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
 }
-
 .cr-app button {
     padding-left: 20px;
     padding-right: 20px;
@@ -46,13 +44,11 @@ button,
     padding-bottom: 5px;
     transition: .5s;
 }
-
 .cr-app button:hover {
     transform: scale(1.09);
 }
-
 .cr-app-body {
-    margin-top: 55px;
+    margin-top: 65px;
 }
 
 

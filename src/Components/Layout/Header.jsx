@@ -8,10 +8,10 @@ import {
   PopoverBody,
   ListGroup,
   ListGroupItem,
+  Button,
 } from "reactstrap";
 import bn from "../../utils/bemnames";
 import routes from "../../Config/routes";
-import { RenderButton } from "../MainRender";
 import {
   MdReorder,
   MdHelp,
@@ -59,7 +59,7 @@ class Header extends React.Component {
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "";
+    let drawerClasses = "bg-primary text-light";
     if (this.props.scrolled) {
       drawerClasses = "bg-gradient-theme-right scrolledAppBar";
     }
@@ -131,29 +131,37 @@ class Header extends React.Component {
                     </ListGroup>
                   </PopoverBody>
                 </Popover>
-                <NavLink onMouseEnter={this.toggleAboutPopover}>
-                  <RenderButton
-                    title="About"
+                <NavLink>
+                  <Button
+                    size="sm"
                     outline
-                    color="dark"
+                    onClick={this.toggleAboutPopover}
                     id="AboutPopover"
-                  />
+                  >
+                    About
+                  </Button>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
-                  <RenderButton
-                    title="SignUp"
+                  <Button
+                    size="sm"
+                    outline
                     onClick={() => this.props.toggle("signUp")}
-                  />
+                  >
+                    SignUp
+                  </Button>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
-                  <RenderButton
+                  <Button
+                    size="sm"
+                    outline
                     onClick={() => this.props.toggle("signIn")}
-                    title="SignIn"
-                  />
+                  >
+                    SignIn
+                  </Button>
                 </NavLink>
               </NavItem>
             </Nav>
