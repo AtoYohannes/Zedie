@@ -37,7 +37,7 @@ const movies = [
 
 const TopCinemaLists = () => (
   <div>
-    <Slider autoplay={4000} className="slider-wrapper">
+    <Slider autoplay={3000} className="slider-wrapper">
       {movies.map((movie, index) => (
         <div
           key={index}

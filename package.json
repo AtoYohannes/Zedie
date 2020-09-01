@@ -23,9 +23,9 @@
     "react-scripts": "3.4.1",
     "react-shimmer-effect": "^1.0.9",
     "react-sizeme": "^2.6.12",
+    "reactjs-pdf-reader": "^1.0.12",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5"
-
   },
   "scripts": {
     "start": "react-scripts start",

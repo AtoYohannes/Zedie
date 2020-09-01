@@ -2,10 +2,10 @@
     justify-content: center;
 }
 
-.blogsContainer{
+.booksContainer{
     margin: 0 auto;
     width: 90%;
-    .blogOverlay{
+    .bookOverlay{
         align-content: center;
         margin: 0 auto;
         font-size: 30px;
@@ -23,17 +23,78 @@
     }
 }
 
-    .carsoulContainer {
-        width: 100%;
-        height: 70px;
-        img {
-            width: 100%;
-            height: 100%;
-        }
+ .carsoulContainer {
+  width: 100%;
+  height: 70px;
+  img {
+      width: 100%;
+      height: 100%;
+}
+ }
 
-    }
+.searchBar {
+  align-content: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
 
-    // Home Page Sliders
+  input {
+    padding: 30px;
+    border-radius: 30px;
+    transition: 1s;
+    color: $primary;
+    font-size: 28px
+  }
+  input:hover {
+    transform: scale(1.09);
+    color: $primary;
+  }
+  button {
+    border-radius: 20px
+  }
+}    
+
+.blogsContainer {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.blogItem {
+  width: 'auto';
+  height: 300px;
+  color:$secondary;
+  overflow: hidden;
+  border: none;
+  img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .description {
+    height: 170px;
+    overflow: hidden;
+  }
+}
+
+//Mobile View For Blogs
+.blogItemMobile {
+  width: 100%;
+  height: 350px;
+  color:$secondary;
+  overflow: hidden;
+  .title{
+    color:$secondary;
+    height: 60px;
+    overflow: hidden;
+
+  }
+  .description{
+    min-height: 170px;
+    height: 180px;
+    overflow: hidden;
+  }
+}
+
+// Home Page Sliders
 
     .slide h1 {
         transition: all 1s ease;
