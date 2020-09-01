@@ -7,7 +7,7 @@ const Divider = ({ title }) => {
       <MdAddShoppingCart size={30} />
       <div className="ml-1 mr-1">
         <h3>
-          <b className='text-primary'>{title}</b>
+          <b className="text-primary text-uppercase">{title}</b>
         </h3>
       </div>
       <MdAddShoppingCart size={30} />

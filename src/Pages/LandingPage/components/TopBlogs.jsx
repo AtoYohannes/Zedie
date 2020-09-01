@@ -15,15 +15,15 @@ import {
   entertaiment04,
 } from "../../../Assets/images";
 
-const Blogs = () => {
+const TopBlogs = () => {
   return (
     <div className="blogsContainer">
       <Row>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment01} />
-            <CardImgOverlay  className='mb-4'>
-             {" "}
+            <CardImgOverlay className="mb-4">
+              {" "}
               <CardText className="blogOverlay">Title Goes Here</CardText>
               <CardSubtitle className="text-light">
                 Description Goes Here
@@ -32,7 +32,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment02} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -43,7 +43,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment03} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -54,7 +54,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment04} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -65,7 +65,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment01} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -76,7 +76,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment02} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -87,7 +87,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment03} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -98,7 +98,7 @@ const Blogs = () => {
           </Card>
         </Col>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-3 zoom">
             <CardImg src={entertaiment04} />
             <CardImgOverlay className="mb-4">
               <CardText className="blogOverlay">Title Goes Here</CardText>
@@ -113,4 +113,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default TopBlogs;

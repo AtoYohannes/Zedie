@@ -59,7 +59,7 @@ class Header extends React.Component {
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "text-primary";
+    let drawerClasses = " bg-primary text-light";
     if (this.props.scrolled) {
       drawerClasses = "bg-gradient-theme-right scrolledAppBar";
     }
@@ -137,6 +137,7 @@ class Header extends React.Component {
                     outline
                     onClick={this.toggleAboutPopover}
                     id="AboutPopover"
+                    color="light"
                   >
                     About
                   </Button>
@@ -148,6 +149,7 @@ class Header extends React.Component {
                     size="sm"
                     outline
                     onClick={() => this.props.toggle("signUp")}
+                    color="light"
                   >
                     SignUp
                   </Button>
@@ -159,6 +161,7 @@ class Header extends React.Component {
                     size="sm"
                     outline
                     onClick={() => this.props.toggle("signIn")}
+                    color="light"
                   >
                     SignIn
                   </Button>

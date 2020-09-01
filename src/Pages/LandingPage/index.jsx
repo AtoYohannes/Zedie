@@ -1,7 +1,8 @@
 import React from "react";
-import Blogs from "./components/TopBlogs";
+// import Blogs from "./components/TopBlogs";
 import Divider from "../../Components/Divider";
-import TopCinemaLists from "./components/TopCinemas";
+import { TopBlogs, TopCinemaLists, TopDirectories } from "./components";
+// import TopCinemaLists from "./components/TopCinemas";
 
 const LandingPage = () => {
   return (
@@ -9,7 +10,9 @@ const LandingPage = () => {
       <Divider title="Cinema Schedules" />
       <TopCinemaLists />
       <Divider title="Top Blogs" />
-      <Blogs />
+      <TopBlogs />
+      <Divider title="Top Directories" />
+      <TopDirectories />
     </div>
   );
 };
