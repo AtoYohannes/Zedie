@@ -59,7 +59,7 @@ class Header extends React.Component {
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "bg-primary text-light";
+    let drawerClasses = "text-primary";
     if (this.props.scrolled) {
       drawerClasses = "bg-gradient-theme-right scrolledAppBar";
     }
