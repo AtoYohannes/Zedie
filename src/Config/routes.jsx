@@ -7,4 +7,7 @@ export default {
   directories: "/directories",
   cinemaSchedules: "/cinemaSchedules",
   addNews: "/addNews",
+  addBooks: "/addBooks",
+  addDirectories: "/addDirectories",
+  addMovies: "/addMovies",
 };

@@ -59,7 +59,6 @@ class News extends Component {
 
   render() {
     const isMobile = this.state.isMobile;
-
     return (
       <div className="blogsContainer">
         <h1 className="mt-4 mb-3 text-primary">NEWS</h1>
