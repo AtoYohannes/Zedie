@@ -1,4 +1,4 @@
-import { Content, Footer, Header } from "./index";
+import { Content, Footer, Header, SubHeader } from "./index";
 import React from "react";
 import { BackDrop, SlidingDrawer } from "../Drawer";
 
@@ -63,8 +63,14 @@ class MainLayout extends React.Component {
           <SlidingDrawer show={this.state.drawerOpen} type={this.state.type} />
           {backdrop}
           <Content fluid>
-            <Header toggle={this.drawerToggleClickHandler} scrolled={this.state.scrolled} />
-            <div className="cr-app-body">{children}</div>
+            <Header
+              toggle={this.drawerToggleClickHandler}
+              scrolled={this.state.scrolled}
+            />
+            <div className="cr-app-body">
+              <SubHeader />
+              {children}
+            </div>
             <div className="mt-5">
               <Footer />
             </div>

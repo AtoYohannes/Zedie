@@ -14,22 +14,26 @@ import {
   entertaiment03,
   entertaiment04,
 } from "../../../Assets/images";
+import { Link } from "react-router-dom";
+import routes from "../../../Config/routes";
 
 const TopBooks = () => {
   return (
     <div className="booksContainer">
       <Row>
         <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment01} />
-            <CardImgOverlay className="mb-4">
-              {" "}
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
+          <Link to={{ pathname: routes.singleBook }}>
+            <Card className="mb-3 zoom">
+              <CardImg src={entertaiment01} />
+              <CardImgOverlay className="mb-4">
+                {" "}
+                <CardText className="bookOverlay">Title Goes Here</CardText>
+                <CardSubtitle className="text-light">
+                  Description Goes Here
+                </CardSubtitle>
+              </CardImgOverlay>
+            </Card>
+          </Link>
         </Col>
         <Col md={3} sm={6} xs={12}>
           <Card className="mb-3 zoom">

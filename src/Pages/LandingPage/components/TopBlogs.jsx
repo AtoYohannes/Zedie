@@ -77,7 +77,7 @@ class TopBlogs extends Component {
             {blogs.map((blogs, index) => (
               <Col key={index} md={10} sm={12} xs={12} className="mb-5">
                 <Link
-                  to={{ pathname: routes.singleBlog }}
+                  to={{ pathname: routes.singleNews }}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="flex-row blogItem border-0 bg-background zoom">
