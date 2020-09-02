@@ -1,7 +1,7 @@
 export default {
   homePage: "/",
-  singleBook: "/singleBook",
-  singleNews: "/singleNews",
+  singleBook: "/singleBook/:id",
+  singleNews: "/singleNews/:id",
   news: "/news",
   books: "/books",
   directories: "/directories",

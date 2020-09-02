@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../../../Config/Firebase";
-import ImageUploader from "react-images-upload";
+import FileUploader from "react-firebase-file-uploader";
 import {
   Col,
   Row,
@@ -11,6 +11,7 @@ import {
   Input,
   Button,
   Form,
+  Progress,
 } from "reactstrap";
 
 class PostNews extends Component {
@@ -21,8 +22,33 @@ class PostNews extends Component {
       header: "",
       body: "",
       author: "",
+      isUploading: false,
+      imageURL: "",
+      image: "",
+      progress: 0,
+      uploadProgress: 0,
     };
   }
+  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+  handleProgress = (progress) => this.setState({ progress });
+  handleUploadError = (error) => {
+    this.setState({ isUploading: false });
+    console.error(error);
+  };
+  handleUploadError = (error) => {
+    this.setState({ isUploading: false });
+    console.error(error);
+  };
+
+  handleUploadSuccess = (filename) => {
+    this.setState({ image: filename, progress: 100, isUploading: false });
+    firebase
+      .storage()
+      .ref("images")
+      .child(filename)
+      .getDownloadURL()
+      .then((url) => this.setState({ imageURL: url }));
+  };
   onChange = (e) => {
     const state = this.state;
     state[e.target.name] = e.target.value;
@@ -31,19 +57,22 @@ class PostNews extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { header, body, author } = this.state;
-
+    const { header, body, author, imageURL, image } = this.state;
     this.ref
       .add({
         header,
         body,
         author,
+        imageURL,
+        image
       })
       .then((docRef) => {
         this.setState({
           header: "",
           body: "",
           author: "",
+          image: "",
+          imageURL: "",
         });
         this.props.history.push("/");
       })
@@ -56,6 +85,9 @@ class PostNews extends Component {
     return (
       <Form className="postBlogContainer" onSubmit={this.onSubmit}>
         <Card className="border-0 p-2">
+          {this.state.isUploading && (
+            <Progress animated value={this.state.progress} />
+          )}
           <Row>
             <Col>
               <div>
@@ -82,15 +114,18 @@ class PostNews extends Component {
               </div>
             </Col>
             <Col md={4} sm={12} xs={12}>
-              <ImageUploader
-                label={""}
-                withIcon={true}
-                withPreview={true}
-                buttonText="Choose images"
-                onChange={this.onDrop}
-                imgExtension={[".jpg", ".png"]}
-                maxFileSize={2242880}
+              <FileUploader
+                accept="image/*"
+                name="image"
+                randomizeFilename
+                storageRef={firebase.storage().ref("images")}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
               />
+
+              {this.state.imageURL && <img src={this.state.imageURL} alt="" />}
             </Col>
           </Row>
           <CardFooter align="center">

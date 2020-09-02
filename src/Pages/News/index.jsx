@@ -12,7 +12,7 @@ import {
 import Avatar from "../../Components/Avatar";
 import { Link } from "react-router-dom";
 import routes from "../../Config/routes";
-import { entertaiment06 } from "../../Assets/images";
+// import { entertaiment06 } from "../../Assets/images";
 import firebase from "../../Config/Firebase";
 
 class News extends Component {
@@ -30,13 +30,14 @@ class News extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const news = [];
     querySnapshot.forEach((doc) => {
-      const { body, header, author } = doc.data();
+      const { body, header, author, imageURL } = doc.data();
       news.push({
         key: doc.id,
         doc, // DocumentSnapshot
         body,
         header,
         author,
+        imageURL,
       });
     });
     this.setState({
@@ -69,11 +70,12 @@ class News extends Component {
             {this.state.news.map((news, index) => (
               <Col key={index} md={6} sm={12} xs={12} className="mb-5">
                 <Link
-                  to={{ pathname: routes.singleNews }}
+                  to={`/singleNews/${news.key}`}
+                  // to={{ pathname: routes.singleNews }}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="flex-row blogItem border-0 bg-background zoom">
-                    <CardImg className="card-img-left " src={entertaiment06} />
+                    <CardImg className="card-img-left " src={news.imageURL} />
                     <CardBody>
                       <CardTitle className="bg-background title">
                         <b>{news.header}</b>
