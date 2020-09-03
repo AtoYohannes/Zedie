@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Col, Row, CardImg } from "reactstrap";
+import { Card, Col, CardImg } from "reactstrap";
 
-const BlogBody = ({
+const NewsBody = ({
   header,
   image,
   body,
@@ -29,31 +29,14 @@ const BlogBody = ({
       </div>
       <hr />
       <div className="images mt-5">
-        <Row>
-          <Col sm={12} md={3} className="mb-3">
-            <Card>
-              <CardImg src={image} />
-            </Card>
-          </Col>
-          <Col sm={12} md={3} className="mb-3">
-            <Card>
-              <CardImg src={image} />
-            </Card>
-          </Col>
-          <Col sm={12} md={3} className="mb-3">
-            <Card>
-              <CardImg src={image} />
-            </Card>
-          </Col>{" "}
-          <Col sm={12} md={3} className="mb-3">
-            <Card>
-              <CardImg src={image} />
-            </Card>
-          </Col>{" "}
-        </Row>
+        <Col sm={12} md={3} className="mb-3">
+          <Card>
+            <CardImg src={image} />
+          </Card>
+        </Col>
       </div>
     </div>
   );
 };
 
-export default BlogBody;
+export default NewsBody;

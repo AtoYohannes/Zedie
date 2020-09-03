@@ -2,3 +2,16 @@
     margin: 0 auto;
     width: 60%;
 }
+
+//Cinema Schedules
+
+.moviesContainer {
+    margin: 0 auto;
+    width: 80%;
+    .movieListContainer {
+        img {
+            height: 250px;
+            object-fit: cover;
+        }
+    }
+}

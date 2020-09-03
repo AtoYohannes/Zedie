@@ -22,7 +22,8 @@ class PostNews extends Component {
     this.state = {
       header: "",
       body: "",
-      author: "",
+      authorName: "",
+      authorPhoneNumber: "",
       isUploading: false,
       images: [],
       imageURLs: [],
@@ -63,12 +64,21 @@ class PostNews extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { header, body, author, imageURLs, images } = this.state;
+    const {
+      header,
+      body,
+      authorName,
+      authorPhoneNumber,
+      imageURLs,
+      images,
+    } = this.state;
     this.ref
       .add({
         header,
         body,
-        author,
+        authorName,
+        authorPhoneNumber,
+
         imageURLs,
         images,
       })
@@ -76,7 +86,8 @@ class PostNews extends Component {
         this.setState({
           header: "",
           body: "",
-          author: "",
+          authorName: "",
+          authorPhoneNumber: "",
           images: [],
           imageURLs: [],
         });
@@ -107,12 +118,27 @@ class PostNews extends Component {
                         name="header"
                       />
                     </Col>
+
                     <Col md={12} sm={12} xs={12}>
                       <Input
                         placeholder="News body"
                         type="textarea"
                         onChange={this.onChange}
                         name="body"
+                      />
+                    </Col>
+                    <Col md={12} sm={12} xs={12}>
+                      <Input
+                        placeholder="Author Name"
+                        onChange={this.onChange}
+                        name="authorName"
+                      />
+                    </Col>
+                    <Col md={12} sm={12} xs={12}>
+                      <Input
+                        placeholder="Author Phone Number"
+                        onChange={this.onChange}
+                        name="authorPhoneNumber"
                       />
                     </Col>
                   </Row>

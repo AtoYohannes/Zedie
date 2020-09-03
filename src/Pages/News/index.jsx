@@ -30,13 +30,14 @@ class News extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const news = [];
     querySnapshot.forEach((doc) => {
-      const { body, header, author, imageURLs } = doc.data();
+      const { body, header, authorName, authorPhoneNumber, imageURLs } = doc.data();
       news.push({
         key: doc.id,
         doc, // DocumentSnapshot
         body,
         header,
-        author,
+        authorName,
+        authorPhoneNumber,
         imageURLs,
       });
     });

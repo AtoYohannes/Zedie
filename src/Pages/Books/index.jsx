@@ -8,16 +8,7 @@ import {
   CardText,
   CardSubtitle,
 } from "reactstrap";
-// import {
-//   entertaiment01,
-//   entertaiment02,
-//   entertaiment12,
-//   entertaiment20,
-//   entertaiment21,
-//   entertaiment18,
-// } from "../../Assets/images";
 import { Link } from "react-router-dom";
-// import routes from "../../Config/routes";
 import firebase from "../../Config/Firebase";
 
 class Books extends Component {
@@ -52,7 +43,6 @@ class Books extends Component {
 
   componentDidMount() {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
-    // console.log("All datas "+books);
   }
   render() {
     return (
