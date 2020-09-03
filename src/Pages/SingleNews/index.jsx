@@ -67,13 +67,13 @@ class SingleNewsPage extends Component {
 
   render() {
     const isMobile = this.state.isMobile;
+    console.log(this.state.news.imageURLs);
     return (
       <>
         <NewsBody
           header={this.state.news.header}
-          image={this.state.news.imageURL}
+          image={this.state.news.imageURLs}
           body={this.state.news.body}
-
           image1={entertaiment02}
           image3={entertaiment05}
           image4={entertaiment04}

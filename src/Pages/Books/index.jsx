@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Card,
   CardImg,
@@ -8,81 +8,79 @@ import {
   CardText,
   CardSubtitle,
 } from "reactstrap";
-import {
-  entertaiment01,
-  entertaiment02,
-  entertaiment12,
-  entertaiment20,
-  entertaiment21,
-  entertaiment18,
-} from "../../Assets/images";
+// import {
+//   entertaiment01,
+//   entertaiment02,
+//   entertaiment12,
+//   entertaiment20,
+//   entertaiment21,
+//   entertaiment18,
+// } from "../../Assets/images";
 import { Link } from "react-router-dom";
-import routes from "../../Config/routes";
+// import routes from "../../Config/routes";
+import firebase from "../../Config/Firebase";
 
-const books = [
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment01,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment18,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment20,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment12,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment02,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-  {
-    title: "News Title Goes Here",
-    bookCoverImage: entertaiment21,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-  },
-];
 
-const Books = () => {
-  return (
-    <div className="booksContainer">
-      <h1 className="mt-4 mb-3 text-primary">KIDS' BOOKS</h1>
-      <hr />
-      <Row>
-        {books.map((books, index) => (
-          <Col md={3} sm={6} xs={12} key={index} >
-            <Link to={{ pathname: routes.singleBook }}>
-              <Card className="mb-3 zoom books">
-                <CardImg src={books.bookCoverImage} />
-                <CardImgOverlay className="mb-4">
-                  {" "}
-                  <CardText className="bookOverlay">{books.title}</CardText>
-                  <CardSubtitle className="text-light">
-                    {books.description}
-                  </CardSubtitle>
-                </CardImgOverlay>
-              </Card>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-    </div>
-  );
-};
+class Books extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = firebase.firestore().collection("Books");
+    this.unsubscribe = null;
+    this.state = {
+      books: [],
+      isMobile: false,
+    };
+  }
+
+  onCollectionUpdate = (querySnapshot) => {
+    const books = [];
+    querySnapshot.forEach((doc) => {
+      const { title, description, author, imageURL, bookURL } = doc.data();
+      books.push({
+        key: doc.id,
+        doc, // DocumentSnapshot
+        title,
+        description,
+        author,
+        imageURL,
+        bookURL,
+      });
+    });
+    this.setState({
+      books,
+    });
+  };
+
+  componentDidMount() {
+    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    // console.log("All datas "+books);
+  }
+  render() {
+    return (
+      <div className="booksContainer">
+        <h1 className="mt-4 mb-3 text-primary">KIDS' BOOKS</h1>
+        <hr />
+        <Row>
+          {this.state.books.map((book, index) => (
+            <Col md={3} sm={6} xs={12} key={index}>
+              <Link to={`/singleBook/${book.key}`}>
+                <Card className="mb-3 zoom books">
+                  <CardImg src={book.imageURL} />
+                  <CardImgOverlay className="mb-4">
+                    {" "}
+                    <CardText className="bookOverlay">{book.title}</CardText>
+                    <CardSubtitle className="text-light">
+                      {book.description}
+                    </CardSubtitle>
+                  </CardImgOverlay>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    );
+  }
+}
 
 export default Books;

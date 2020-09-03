@@ -12,6 +12,7 @@ import {
   Button,
   Form,
   Progress,
+  CardImg,
 } from "reactstrap";
 
 class PostNews extends Component {
@@ -23,8 +24,8 @@ class PostNews extends Component {
       body: "",
       author: "",
       isUploading: false,
-      imageURL: "",
-      image: "",
+      images: [],
+      imageURLs: [],
       progress: 0,
       uploadProgress: 0,
     };
@@ -40,14 +41,19 @@ class PostNews extends Component {
     console.error(error);
   };
 
-  handleUploadSuccess = (filename) => {
-    this.setState({ image: filename, progress: 100, isUploading: false });
-    firebase
+  handleUploadSuccess = async (filename) => {
+    const downloadURL = await firebase
       .storage()
       .ref("images")
       .child(filename)
-      .getDownloadURL()
-      .then((url) => this.setState({ imageURL: url }));
+      .getDownloadURL();
+
+    this.setState((oldState) => ({
+      images: [...oldState.images, filename],
+      imageURLs: [...oldState.imageURLs, downloadURL],
+      uploadProgress: 100,
+      isUploading: false,
+    }));
   };
   onChange = (e) => {
     const state = this.state;
@@ -57,22 +63,22 @@ class PostNews extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { header, body, author, imageURL, image } = this.state;
+    const { header, body, author, imageURLs, images } = this.state;
     this.ref
       .add({
         header,
         body,
         author,
-        imageURL,
-        image
+        imageURLs,
+        images,
       })
       .then((docRef) => {
         this.setState({
           header: "",
           body: "",
           author: "",
-          image: "",
-          imageURL: "",
+          images: [],
+          imageURLs: [],
         });
         this.props.history.push("/");
       })
@@ -123,9 +129,23 @@ class PostNews extends Component {
                 onUploadError={this.handleUploadError}
                 onUploadSuccess={this.handleUploadSuccess}
                 onProgress={this.handleProgress}
+                multiple
               />
-
-              {this.state.imageURL && <img src={this.state.imageURL} alt="" />}
+              <p>images: {this.state.images.join(", ")}</p>
+              <Row>
+                {this.state.imageURLs.map((downloadURL, i) => {
+                  return (
+                    <Col
+                      md={6}
+                      sm={12}
+                      xs={12}
+                      className="addNews mr-1 mb-2 mt-2"
+                    >
+                      <CardImg key={i} src={downloadURL} />
+                    </Col>
+                  );
+                })}
+              </Row>
             </Col>
           </Row>
           <CardFooter align="center">

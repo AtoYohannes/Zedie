@@ -30,14 +30,14 @@ class News extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const news = [];
     querySnapshot.forEach((doc) => {
-      const { body, header, author, imageURL } = doc.data();
+      const { body, header, author, imageURLs } = doc.data();
       news.push({
         key: doc.id,
         doc, // DocumentSnapshot
         body,
         header,
         author,
-        imageURL,
+        imageURLs,
       });
     });
     this.setState({
@@ -49,6 +49,7 @@ class News extends Component {
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    // console.log("All datas "+news);
   }
 
   componentWillUnmount() {
@@ -75,7 +76,7 @@ class News extends Component {
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="flex-row blogItem border-0 bg-background zoom">
-                    <CardImg className="card-img-left " src={news.imageURL} />
+                    <CardImg className="card-img-left " src={news.imageURLs} />
                     <CardBody>
                       <CardTitle className="bg-background title">
                         <b>{news.header}</b>
