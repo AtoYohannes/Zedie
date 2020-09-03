@@ -6,8 +6,20 @@ import routes from "./Config/routes";
 import { Spinner } from "reactstrap";
 import { MainLayout } from "./Components/Layout";
 
-const DemoPage = React.lazy(() => import("./Pages/DemoPage"));
-
+const SingleBook = React.lazy(() => import("./Pages/SingleBook"));
+const SingleNews = React.lazy(() => import("./Pages/SingleNews"));
+const Books = React.lazy(() => import("./Pages/Books"));
+const News = React.lazy(() => import("./Pages/News"));
+const Directories = React.lazy(() => import("./Pages/Directories"));
+const CinemaSchedules = React.lazy(() => import("./Pages/CinemaSchedule"));
+const AddNews = React.lazy(() => import("./Pages/News/components/AddNews"));
+const AddDirectories = React.lazy(() =>
+  import("./Pages/Directories/components/addDirectories")
+);
+const AddBooks = React.lazy(() => import("./Pages/Books/components/AddBooks"));
+const AddMovies = React.lazy(() =>
+  import("./Pages/CinemaSchedule/components/AddMovies")
+);
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split("/").pop()}`;
@@ -32,11 +44,29 @@ function App() {
                 </div>
               }
             >
-              <Route exact path={routes.homePage} component={DemoPage} />
+              <Route exact path={routes.homePage} component={News} />
+              <Route exact path={routes.singleBook} component={SingleBook} />
+              <Route exact path={routes.singleNews} component={SingleNews} />
+              <Route exact path={routes.news} component={News} />
+              <Route exact path={routes.books} component={Books} />
+              <Route exact path={routes.directories} component={Directories} />
+              <Route
+                exact
+                path={routes.cinemaSchedules}
+                component={CinemaSchedules}
+              />
+              <Route exact path={routes.addNews} component={AddNews} />
+              <Route exact path={routes.addBooks} component={AddBooks} />
+              <Route
+                exact
+                path={routes.addDirectories}
+                component={AddDirectories}
+              />
+              <Route exact path={routes.addMovies} component={AddMovies} />
             </React.Suspense>
           </MainLayout>
         </React.Fragment>
-        <Redirect to="/" />
+        <Redirect to={routes.news} />
       </Switch>
     </BrowserRouter>
   );

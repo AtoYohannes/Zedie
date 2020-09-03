@@ -5,8 +5,8 @@ export const RenderInput = ({ type, placeholder, ...props }) => (
   <Input {...props} className="input" placeholder={placeholder} type={type} />
 );
 
-export const RenderButton = ({ color, title, ...props }) => (
-  <Button {...props} size="sm" outline color={color}>
+export const RenderButton = ({ title, ...props }) => (
+  <Button {...props} size="sm" outline>
     {title}
   </Button>
 );

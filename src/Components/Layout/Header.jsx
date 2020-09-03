@@ -8,10 +8,10 @@ import {
   PopoverBody,
   ListGroup,
   ListGroupItem,
+  Button,
 } from "reactstrap";
 import bn from "../../utils/bemnames";
 import routes from "../../Config/routes";
-import { RenderButton } from "../MainRender";
 import {
   MdReorder,
   MdHelp,
@@ -59,11 +59,10 @@ class Header extends React.Component {
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "";
+    let drawerClasses = " bg-primary text-light";
     if (this.props.scrolled) {
       drawerClasses = "bg-gradient-theme-right scrolledAppBar";
     }
-
     return (
       <>
         <Navbar light fixed="top" expand className={drawerClasses}>
@@ -71,12 +70,12 @@ class Header extends React.Component {
             to={{ pathname: routes.homePage }}
             style={{ textDecoration: "none" }}
           >
-            <Nav navbar>LOGO </Nav>
+            <Nav navbar>ሎጎ </Nav>
           </Link>
 
           {isMobile && (
             <Nav navbar className="ml-2">
-              Project Title
+              ዘዴ
             </Nav>
           )}
           {isMobile ? (
@@ -131,29 +130,40 @@ class Header extends React.Component {
                     </ListGroup>
                   </PopoverBody>
                 </Popover>
-                <NavLink onMouseEnter={this.toggleAboutPopover}>
-                  <RenderButton
-                    title="About"
+                <NavLink>
+                  <Button
+                    size="sm"
                     outline
-                    color="dark"
+                    onClick={this.toggleAboutPopover}
                     id="AboutPopover"
-                  />
+                    color="light"
+                  >
+                    About
+                  </Button>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
-                  <RenderButton
-                    title="SignUp"
+                  <Button
+                    size="sm"
+                    outline
                     onClick={() => this.props.toggle("signUp")}
-                  />
+                    color="light"
+                  >
+                    SignUp
+                  </Button>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
-                  <RenderButton
+                  <Button
+                    size="sm"
+                    outline
                     onClick={() => this.props.toggle("signIn")}
-                    title="SignIn"
-                  />
+                    color="light"
+                  >
+                    SignIn
+                  </Button>
                 </NavLink>
               </NavItem>
             </Nav>
