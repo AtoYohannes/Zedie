@@ -20,7 +20,6 @@ import { Link } from "react-router-dom";
 // import routes from "../../Config/routes";
 import firebase from "../../Config/Firebase";
 
-
 class Books extends Component {
   constructor(props) {
     super(props);
