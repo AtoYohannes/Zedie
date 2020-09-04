@@ -10,4 +10,5 @@ export default {
   addBooks: "/addBooks",
   addDirectories: "/addDirectories",
   addMovies: "/addMovies",
+  adminPannel: "/adminPannel",
 };

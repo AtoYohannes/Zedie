@@ -13,6 +13,7 @@ const News = React.lazy(() => import("./Pages/News"));
 const Directories = React.lazy(() => import("./Pages/Directories"));
 const CinemaSchedules = React.lazy(() => import("./Pages/CinemaSchedule"));
 const AddNews = React.lazy(() => import("./Pages/News/components/AddNews"));
+const AdminPannel = React.lazy(() => import("./Pages/Admin"));
 const AddDirectories = React.lazy(() =>
   import("./Pages/Directories/components/addDirectories")
 );
@@ -50,6 +51,7 @@ function App() {
               <Route exact path={routes.news} component={News} />
               <Route exact path={routes.books} component={Books} />
               <Route exact path={routes.directories} component={Directories} />
+              <Route exact path={routes.adminPannel} component={AdminPannel} />
               <Route
                 exact
                 path={routes.cinemaSchedules}

@@ -47,7 +47,7 @@ class Books extends Component {
   render() {
     return (
       <div className="booksContainer">
-        <h1 className="mt-4 mb-3 text-primary">KIDS' BOOKS</h1>
+        <h1 className="mt-4 mb-3 text-primary">BOOKS</h1>
         <hr />
         <Row>
           {this.state.books.map((book, index) => (

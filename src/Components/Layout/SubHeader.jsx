@@ -19,7 +19,7 @@ const SubHeader = () => {
           <Col align="center">
             <Link to={{ pathname: routes.books }}>
               <Button outline size="lg" color="light">
-                <MdBook /> Kid's Books
+                <MdBook /> Books
               </Button>
             </Link>
           </Col>

@@ -30,7 +30,13 @@ class News extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const news = [];
     querySnapshot.forEach((doc) => {
-      const { body, header, authorName, authorPhoneNumber, imageURLs } = doc.data();
+      const {
+        body,
+        header,
+        authorName,
+        authorPhoneNumber,
+        imageURLs,
+      } = doc.data();
       news.push({
         key: doc.id,
         doc, // DocumentSnapshot
@@ -87,7 +93,7 @@ class News extends Component {
                         <Row>
                           <Col align="right">
                             <div>{news.authorName}</div>
-                            <small>{news.autorEmail}</small>{" "}
+                            <small>{news.authorPhoneNumber}</small>{" "}
                           </Col>
                           <Avatar className="border" src={news.authorImage} />{" "}
                         </Row>
@@ -117,7 +123,7 @@ class News extends Component {
                         <Row>
                           <Col align="right">
                             <div>{news.authorName}</div>
-                            <small>{news.autorEmail}</small>
+                            <small>{news.authorPhoneNumber}</small>
                           </Col>
                           <Avatar className="border" src={news.authorImage} />{" "}
                         </Row>
