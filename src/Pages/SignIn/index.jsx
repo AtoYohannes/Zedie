@@ -1,27 +1,36 @@
-import React from "react";
-import { MdLockOpen } from "react-icons/md";
-import { Card, Col, CardHeader, CardBody, Input, Button } from "reactstrap";
+import React, { Component } from "react";
+import firebase from "../../Config/Firebase";
+import * as firebaseui from "firebaseui";
 
-const SignIn = () => {
-  return (
-    <Card className="signIn border-0">
-      <CardHeader align="center" className="bg-background mb-3">
-        <h4>Sign Into ዘዴ</h4>
-      </CardHeader>
-      <Col align="center">
-        <MdLockOpen size={40} />
-      </Col>
-      <CardBody>
-        <Input placeholder="Your Number" type="number" />
-        <Input placeholder="Password" type="password" />
-        <Col align="center" className="mt-3">
-          <Button outline size="sm">
-            Sign In
-          </Button>
-        </Col>
-      </CardBody>
-    </Card>
-  );
-};
+class SignIn extends Component {
+  componentDidMount() {
+    // const fbase = firebase.initializeApp(firebase);
+    const uiConfig = {
+      signInSuccessUrl: "/", //This URL is used to return to that page when we got success response for phone authentication.
+      signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],
+      tosUrl: "/",
+      callbacks: {
+        signInSuccessWithAuthResult: async function (authResult, redirectUrl) {
+          var user = "registered";
+          // var credential = authResult.credential;
+          // var isNewUser = authResult.additionalUserInfo.isNewUser;
+          // var providerId = authResult.additionalUserInfo.providerId;
+          // var operationType = authResult.operationType;
+          // Do something with the returned AuthResult.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          await localStorage.setItem("usersData", user);
+          console.log(localStorage.getItem("usersData"));
+          return true;
+        },
+      },
+    };
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start("#firebaseui-auth-container", uiConfig);
+  }
+  render() {
+    return <div id="firebaseui-auth-container"></div>;
+  }
+}
 
 export default SignIn;

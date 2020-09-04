@@ -47,7 +47,7 @@ class Directories extends Component {
         <Row>
           {this.state.directories.map((directory, index) => (
             <Col md={4} sm={12} xs={12} key={index} className="mb-3">
-              <Card>
+              <Card className='zoom'>
                 <CardHeader>{directory.companyName}</CardHeader>
                 <CardBody>
                   <Col>{directory.phoneNumber1}</Col>

@@ -289,12 +289,10 @@
         height: 70vh;
         overflow: hidden;
       }
-      
       .slide {
         height: 70vh;
         background-size: cover !important;
       }
-      
       .slide::before {
           content: '';
           display: block;

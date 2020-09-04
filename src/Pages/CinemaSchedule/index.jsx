@@ -87,7 +87,7 @@ class CinemaSchedule extends Component {
           <Row>
             {this.state.movies.map((movie, index) => (
               <Col md={3} sm={12} xs={12} key={index}>
-                <Card className="border-0 movieListContainer zoom">
+                <Card className="border-0 movieListContainer zoom mb-3">
                   <CardHeader>{movie.movieTitle}</CardHeader>
                   <CardImg src={movie.imageURL} />
                   <CardBody>

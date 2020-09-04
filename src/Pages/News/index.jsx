@@ -11,8 +11,6 @@ import {
 } from "reactstrap";
 import Avatar from "../../Components/Avatar";
 import { Link } from "react-router-dom";
-import routes from "../../Config/routes";
-// import { entertaiment06 } from "../../Assets/images";
 import firebase from "../../Config/Firebase";
 
 class News extends Component {
@@ -110,7 +108,7 @@ class News extends Component {
             {this.state.news.map((news, index) => (
               <Col key={index} md={12} sm={12} xs={12} className="mb-2">
                 <Link
-                  to={{ pathname: routes.singleBlog }}
+                  to={`/singleNews/${news.key}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="blogItemMobile border bg-background">

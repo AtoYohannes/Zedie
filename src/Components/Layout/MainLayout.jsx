@@ -1,6 +1,8 @@
 import { Content, Footer, Header, SubHeader } from "./index";
 import React from "react";
 import { BackDrop, SlidingDrawer } from "../Drawer";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import SignIn from "../../Pages/SignIn";
 
 class MainLayout extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class MainLayout extends React.Component {
       scrollTop: 0,
       scrolled: false,
       drawerOpen: false,
+      scrolledSignUp: false,
       type: "",
     };
   }
@@ -33,9 +36,15 @@ class MainLayout extends React.Component {
         scrolled: true,
       });
     }
+    if (scrollTop > 160 && !localStorage.getItem("usersData")) {
+      this.setState({
+        scrolledSignUp: true,
+      });
+    }
     if (scrollTop < 160) {
       this.setState({
         scrolled: false,
+        scrolledSignUp: false,
       });
     }
     this.setState({
@@ -49,7 +58,6 @@ class MainLayout extends React.Component {
     if (this.state.drawerOpen) {
       backdrop = <BackDrop close={this.backdropClickHandler} />;
     }
-
     return (
       <div
         style={{
@@ -59,6 +67,12 @@ class MainLayout extends React.Component {
         onScroll={this.onScroll}
         ref={this.myRef}
       >
+        <Modal isOpen={this.state.scrolledSignUp}>
+          <ModalHeader>You have to Sign In to Continue</ModalHeader>
+          <ModalBody className="p-3">
+            <SignIn />
+          </ModalBody>
+        </Modal>
         <main className="cr-app bg-background">
           <SlidingDrawer show={this.state.drawerOpen} type={this.state.type} />
           {backdrop}

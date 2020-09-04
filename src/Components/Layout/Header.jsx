@@ -12,17 +12,10 @@ import {
 } from "reactstrap";
 import bn from "../../utils/bemnames";
 import routes from "../../Config/routes";
-import {
-  MdReorder,
-  MdHelp,
-  MdExitToApp,
-  MdGroupAdd,
-  MdPerson,
-  MdPanoramaFishEye,
-  MdQuestionAnswer,
-  MdPageview,
-} from "react-icons/md";
+import { MdReorder, MdExitToApp } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Logo from "../../Assets/ZEDIE.svg";
+import Avatar from "../Avatar";
 
 const bem = bn.create("header");
 
@@ -70,7 +63,9 @@ class Header extends React.Component {
             to={{ pathname: routes.homePage }}
             style={{ textDecoration: "none" }}
           >
-            <Nav navbar>ሎጎ </Nav>
+            <Nav navbar className="logoContainer">
+              <img src={Logo} alt="" />
+            </Nav>
           </Link>
 
           {isMobile && (
@@ -81,89 +76,19 @@ class Header extends React.Component {
           {isMobile ? (
             <Nav navbar className={bem.e("nav-right")}>
               <NavItem>
-                <Popover
-                  trigger="legacy"
-                  placement="bottom"
-                  isOpen={this.state.isAboutPopoverOpen}
-                  toggle={this.toggleAboutPopover}
-                  target="AboutPopover"
-                  className="p-5 border"
-                >
-                  <PopoverBody className="p-2 border-light">
-                    <ListGroup flush>
-                      <ListGroupItem
-                        tag="button"
-                        action
-                        className="border-light"
-                      >
-                        <MdPerson className="mr-3" /> {"  "} About Us
-                      </ListGroupItem>
-                      <ListGroupItem
-                        tag="button"
-                        action
-                        className="border-light"
-                      >
-                        <MdHelp className="mr-3" /> How Magazine Works
-                      </ListGroupItem>
-
-                      <ListGroupItem
-                        tag="button"
-                        action
-                        className="border-light"
-                      >
-                        <MdPanoramaFishEye className="mr-3" /> Browse Magazine
-                      </ListGroupItem>
-                      <ListGroupItem
-                        tag="button"
-                        action
-                        className="border-light"
-                      >
-                        <MdQuestionAnswer className="mr-3" /> FAQ
-                      </ListGroupItem>
-                      <ListGroupItem
-                        tag="button"
-                        action
-                        className="border-light"
-                      >
-                        <MdPageview className="mr-3" /> Terms Of Service
-                      </ListGroupItem>
-                    </ListGroup>
-                  </PopoverBody>
-                </Popover>
                 <NavLink>
-                  <Button
-                    size="sm"
-                    outline
-                    onClick={this.toggleAboutPopover}
-                    id="AboutPopover"
-                    color="light"
-                  >
-                    About
-                  </Button>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Button
-                    size="sm"
-                    outline
-                    onClick={() => this.props.toggle("signUp")}
-                    color="light"
-                  >
-                    SignUp
-                  </Button>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Button
-                    size="sm"
-                    outline
-                    onClick={() => this.props.toggle("signIn")}
-                    color="light"
-                  >
-                    SignIn
-                  </Button>
+                  {localStorage.getItem("usersData") ? (
+                    <Avatar />
+                  ) : (
+                    <Button
+                      size="sm"
+                      outline
+                      onClick={() => this.props.toggle("signIn")}
+                      color="light"
+                    >
+                      SignIn
+                    </Button>
+                  )}
                 </NavLink>
               </NavItem>
             </Nav>
@@ -186,17 +111,6 @@ class Header extends React.Component {
                       onClick={() => this.props.toggle("signIn")}
                     >
                       <MdExitToApp className="mr-2" /> {"  "} SignIn
-                    </ListGroupItem>
-                    <ListGroupItem
-                      tag="button"
-                      action
-                      className="border-light"
-                      onClick={() => this.props.toggle("signUp")}
-                    >
-                      <MdGroupAdd className="mr-2" /> SignUp
-                    </ListGroupItem>
-                    <ListGroupItem tag="button" action className="border-light">
-                      <MdHelp className="mr-2" /> About Us
                     </ListGroupItem>
                   </ListGroup>
                 </PopoverBody>
