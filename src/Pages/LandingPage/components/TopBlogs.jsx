@@ -11,53 +11,50 @@ import {
 } from "reactstrap";
 import Avatar from "../../../Components/Avatar";
 import { Link } from "react-router-dom";
-import routes from "../../../Config/routes";
-import {
-  entertaiment01,
-  entertaiment07,
-  entertaiment06,
-} from "../../../Assets/images";
-
-const blogs = [
-  {
-    title: "News Title Goes Here",
-    image: entertaiment01,
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-    authorName: "Person Name Goes Here",
-    autorEmail: "JohnDoe@gmail.com",
-    authorImage: entertaiment07,
-  },
-  {
-    title: "News Title Goes Here",
-    image: entertaiment07,
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-    authorName: "Person Name Goes Here",
-    autorEmail: "JohnDoe@gmail.com",
-    authorImage: entertaiment01,
-  },
-  {
-    title: "News Title Goes Here",
-    image: entertaiment06,
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, perferendis sequi. Delectus, nulla repellat. Voluptatum delectus nihil dolorum consequatur minus exercitationem aspernatur praesentium illo at vitae adipisci rerum, ullam ipsum.",
-    authorName: "Person Name Goes Here",
-    autorEmail: "JohnDoe@gmail.com",
-    authorImage: entertaiment01,
-  },
-];
+import firebase from "../../../Config/Firebase";
 
 class TopBlogs extends Component {
   constructor(props) {
     super(props);
-    this.state = { isMobile: false };
+    this.ref = firebase.firestore().collection("News");
+    this.unsubscribe = null;
+    this.state = {
+      news: [],
+      isMobile: false,
+    };
     this.updatePredicate = this.updatePredicate.bind(this);
   }
+
+  onCollectionUpdate = (querySnapshot) => {
+    const news = [];
+    querySnapshot.forEach((doc) => {
+      const {
+        body,
+        header,
+        authorName,
+        authorPhoneNumber,
+        imageURLs,
+      } = doc.data();
+      news.push({
+        key: doc.id,
+        doc, // DocumentSnapshot
+        body,
+        header,
+        authorName,
+        authorPhoneNumber,
+        imageURLs,
+      });
+    });
+    this.setState({
+      news,
+    });
+  };
 
   componentDidMount() {
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
+    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    // console.log("All datas "+news);
   }
 
   componentWillUnmount() {
@@ -74,28 +71,26 @@ class TopBlogs extends Component {
       <div className="blogsContainer">
         {isMobile ? (
           <Row>
-            {blogs.map((blogs, index) => (
+            {this.state.news.map((news, index) => (
               <Col key={index} md={10} sm={12} xs={12} className="mb-5">
                 <Link
-                  to={{ pathname: routes.singleNews }}
+                  to={`/singleNews/${news.key}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="flex-row blogItem border-0 bg-background zoom">
-                    <CardImg className="card-img-left " src={blogs.image} />
+                    <CardImg className="card-img-left " src={news.imageURLs} />
                     <CardBody>
                       <CardTitle className="bg-background title">
-                        <b>{blogs.title}</b>
+                        <b>{news.header}</b>
                       </CardTitle>
-                      <CardText className="description">
-                        {blogs.paragraph}
-                      </CardText>
+                      <CardText className="description">{news.body}</CardText>
                       <CardFooter className="bg-background">
                         <Row>
                           <Col align="right">
-                            <div>{blogs.authorName}</div>
-                            <small>{blogs.autorEmail}</small>{" "}
+                            <div>{news.authorName}</div>
+                            <small>{news.authorPhoneNumber}</small>{" "}
                           </Col>
-                          <Avatar className="border" src={blogs.authorImage} />{" "}
+                          <Avatar className="border" src={news.authorImage} />{" "}
                         </Row>
                       </CardFooter>
                     </CardBody>
@@ -106,27 +101,25 @@ class TopBlogs extends Component {
           </Row>
         ) : (
           <div>
-            {blogs.map((blogs, index) => (
+            {this.state.news.map((news, index) => (
               <Col key={index} md={12} sm={12} xs={12} className="mb-2">
                 <Link
-                  to={{ pathname: routes.singleBlog }}
+                  to={`/singleNews/${news.key}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="blogItemMobile border bg-background">
                     <CardBody>
                       <CardTitle className="bg-background title">
-                        <b>{blogs.title}</b>
+                        <b>{news.header}</b>
                       </CardTitle>
-                      <CardText className="description">
-                        {blogs.paragraph}
-                      </CardText>
+                      <CardText className="description">{news.body}</CardText>
                       <CardFooter className="bg-background">
                         <Row>
                           <Col align="right">
-                            <div>{blogs.authorName}</div>
-                            <small>{blogs.autorEmail}</small>
+                            <div>{news.authorName}</div>
+                            <small>{news.authorPhoneNumber}</small>
                           </Col>
-                          <Avatar className="border" src={blogs.authorImage} />{" "}
+                          <Avatar className="border" src={news.authorImage} />{" "}
                         </Row>
                       </CardFooter>
                     </CardBody>

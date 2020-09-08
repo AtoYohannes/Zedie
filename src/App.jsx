@@ -7,6 +7,8 @@ import { Spinner } from "reactstrap";
 import { MainLayout } from "./Components/Layout";
 
 const SingleBook = React.lazy(() => import("./Pages/SingleBook"));
+const LandingPage = React.lazy(() => import("./Pages/LandingPage"));
+
 const SingleNews = React.lazy(() => import("./Pages/SingleNews"));
 const Books = React.lazy(() => import("./Pages/Books"));
 const News = React.lazy(() => import("./Pages/News"));
@@ -45,7 +47,7 @@ function App() {
                 </div>
               }
             >
-              <Route exact path={routes.homePage} component={News} />
+              <Route exact path={routes.homePage} component={LandingPage} />
               <Route exact path={routes.singleBook} component={SingleBook} />
               <Route exact path={routes.singleNews} component={SingleNews} />
               <Route exact path={routes.news} component={News} />
@@ -68,7 +70,7 @@ function App() {
             </React.Suspense>
           </MainLayout>
         </React.Fragment>
-        <Redirect to={routes.news} />
+        <Redirect to={routes.homePage} />
       </Switch>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Card,
   CardImg,
@@ -8,113 +8,68 @@ import {
   CardText,
   CardSubtitle,
 } from "reactstrap";
-import {
-  entertaiment01,
-  entertaiment02,
-  entertaiment03,
-  entertaiment04,
-} from "../../../Assets/images";
-import { Link } from "react-router-dom";
-import routes from "../../../Config/routes";
+import { entertaiment01 } from "../../../Assets/images";
+import firebase from "../../../Config/Firebase";
 
-const TopBooks = () => {
-  return (
-    <div className="booksContainer">
-      <Row>
-        <Col md={3} sm={6} xs={12}>
-          <Link to={{ pathname: routes.singleBook }}>
-            <Card className="mb-3 zoom">
-              <CardImg src={entertaiment01} />
-              <CardImgOverlay className="mb-4">
-                {" "}
-                <CardText className="bookOverlay">Title Goes Here</CardText>
-                <CardSubtitle className="text-light">
-                  Description Goes Here
-                </CardSubtitle>
-              </CardImgOverlay>
-            </Card>
-          </Link>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment02} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment03} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment04} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment01} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment02} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment03} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col md={3} sm={6} xs={12}>
-          <Card className="mb-3 zoom">
-            <CardImg src={entertaiment04} />
-            <CardImgOverlay className="mb-4">
-              <CardText className="bookOverlay">Title Goes Here</CardText>
-              <CardSubtitle className="text-light">
-                Description Goes Here
-              </CardSubtitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-      </Row>
-    </div>
-  );
-};
+class TopBooks extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = firebase.firestore().collection("Books");
+    this.unsubscribe = null;
+    this.state = {
+      books: [],
+      isMobile: false,
+      selectedBook: [],
+    };
+  }
+
+  onCollectionUpdate = (querySnapshot) => {
+    const books = [];
+    querySnapshot.forEach((doc) => {
+      const { title, description, author, imageURL, bookURL } = doc.data();
+      books.push({
+        key: doc.id,
+        doc,
+        title,
+        description,
+        author,
+        imageURL,
+        bookURL,
+      });
+    });
+    this.setState({
+      books,
+    });
+  };
+
+  componentDidMount() {
+    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+  }
+
+  render() {
+    return (
+      <div className="topBooksContainer">
+        <Row>
+          {this.state.books.map((book, index) => (
+            <Col md={3} sm={6} xs={12} key={index}>
+              <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
+                <Card className="mb-3 zoom">
+                  <CardImg src={entertaiment01} />
+                  <CardImgOverlay className="mb-4">
+                    {" "}
+                    <CardText className="bookOverlay">{book.title}</CardText>
+                    <CardSubtitle className="text-light">
+                      {book.description}
+                    </CardSubtitle>
+                  </CardImgOverlay>
+                </Card>
+              </a>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    );
+  }
+}
 
 export default TopBooks;

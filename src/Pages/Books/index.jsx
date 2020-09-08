@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardBody,
 } from "reactstrap";
-import { Link } from "react-router-dom";
 import firebase from "../../Config/Firebase";
 import AsyncSelect from "react-select/async";
 
@@ -40,21 +39,6 @@ class Books extends Component {
           if (!docs.empty) {
             let recommendedBooks = [];
             docs.forEach(function (doc) {
-              // const { title, description, author, imageURL, bookURL } = doc.data();
-              //         books.push({
-              //     key: doc.id,
-              //     doc, // DocumentSnapshot
-              //     title,
-              //     description,
-              //     author,
-              //     imageURL,
-              //     bookURL,
-              //   });
-              // });
-              // this.setState({
-              //   books,
-              // });
-
               const tag = {
                 value: doc.id,
                 label: doc.data().title,
@@ -84,7 +68,7 @@ class Books extends Component {
       const { title, description, author, imageURL, bookURL } = doc.data();
       books.push({
         key: doc.id,
-        doc, // DocumentSnapshot
+        doc,
         title,
         description,
         author,
@@ -110,6 +94,7 @@ class Books extends Component {
           <Col md={6} sm={12} xs={12}>
             <div>
               <AsyncSelect
+                className="mt-4"
                 loadOptions={this.loadOptions}
                 onChange={this.handleOnChange}
               />
@@ -117,14 +102,18 @@ class Books extends Component {
                 {this.state.selectedBook.map((book) => {
                   return (
                     <Col md={6} sm={12} xs={12} key={book.value}>
-                      <Link to={`/singleBook/${book.key}`}>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={book.bookURL}
+                      >
                         <Card className="mb-3 zoom searchedBooks">
                           <CardImg src={book.imageURL} />{" "}
                           <CardBody>
                             <CardHeader>{book.label}</CardHeader>
                           </CardBody>
                         </Card>
-                      </Link>
+                      </a>
                     </Col>
                   );
                 })}
@@ -132,23 +121,21 @@ class Books extends Component {
             </div>
           </Col>
         </Row>
-
         <hr />
         <Row>
           {this.state.books.map((book, index) => (
             <Col md={3} sm={6} xs={12} key={index}>
-              <Link to={`/singleBook/${book.key}`}>
+              <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
                 <Card className="mb-3 zoom books">
                   <CardImg src={book.imageURL} />
                   <CardImgOverlay className="mb-4">
-                    {" "}
                     <CardText className="bookOverlay">{book.title}</CardText>
                     <CardSubtitle className="text-light">
                       {book.description}
                     </CardSubtitle>
                   </CardImgOverlay>
                 </Card>
-              </Link>
+              </a>
             </Col>
           ))}
         </Row>
