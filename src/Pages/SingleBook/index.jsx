@@ -29,13 +29,17 @@ class SingleBook extends Component {
       }
     });
   }
+
   render() {
+    console.log(this.state.book.bookURL);
+
     return (
       <div style={{ overflow: "scroll" }}>
         <PDFReader
           scale={2}
           showAllPage
-          url={"https://arxiv.org/pdf/quant-ph/0410101.pdf"}
+          url={this.state.book.bookURL}
+          // data={this.state.book.bookURL}
         />
       </div>
     );

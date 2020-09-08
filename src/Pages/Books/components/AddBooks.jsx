@@ -14,6 +14,7 @@ import {
   Progress,
   CardImg,
 } from "reactstrap";
+import routes from "../../../Config/routes";
 
 class PostNews extends Component {
   constructor() {
@@ -90,7 +91,7 @@ class PostNews extends Component {
           bookImage: "",
           imageURL: "",
         });
-        this.props.history.push("/");
+        this.props.history.push(routes.books);
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
