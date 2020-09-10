@@ -42,12 +42,16 @@
       flex-direction: column;
       justify-content: flex-end;
       height: 100%;
-      color: #FFF
+      color: #FFF;
+      overflow: hidden;
+      .bookOverlayAuthor {
+        font-size: 15px;
+      }
+
   }
   .books {
-    height: 300px;
+    height: 320px;
     object-fit: cover;
-
     img {
       height: 100%;
       width: 100%;

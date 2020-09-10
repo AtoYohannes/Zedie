@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardImg,
-  Col,
-  Row,
-  CardImgOverlay,
-  CardText,
-  CardSubtitle,
-} from "reactstrap";
-import { entertaiment01 } from "../../../Assets/images";
+import { Card, CardImg, Col, Row, CardImgOverlay, CardText } from "reactstrap";
 import firebase from "../../../Config/Firebase";
 
 class TopBooks extends Component {
@@ -22,7 +13,6 @@ class TopBooks extends Component {
       selectedBook: [],
     };
   }
-
   onCollectionUpdate = (querySnapshot) => {
     const books = [];
     querySnapshot.forEach((doc) => {
@@ -53,14 +43,11 @@ class TopBooks extends Component {
           {this.state.books.map((book, index) => (
             <Col md={3} sm={6} xs={12} key={index}>
               <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
-                <Card className="mb-3 zoom">
-                  <CardImg src={entertaiment01} />
-                  <CardImgOverlay className="mb-4">
+                <Card className="mb-3 zoom books">
+                  <CardImg src={book.imageURL} />
+                  <CardImgOverlay>
                     {" "}
                     <CardText className="bookOverlay">{book.title}</CardText>
-                    <CardSubtitle className="text-light">
-                      {book.description}
-                    </CardSubtitle>
                   </CardImgOverlay>
                 </Card>
               </a>

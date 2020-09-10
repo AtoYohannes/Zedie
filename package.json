@@ -1,5 +1,6 @@
 {
   "name": "magazine",
+  "homepage": "http://zedye.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

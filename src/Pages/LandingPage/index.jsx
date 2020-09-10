@@ -5,10 +5,10 @@ import { TopBlogs, TopCinemaLists, TopBooks } from "./components";
 const LandingPage = () => {
   return (
     <div className="bg-background">
-      <Divider title="Kid Books" />
-      <TopBooks />
       <Divider title="Cinema Schedules" />
       <TopCinemaLists />
+      <Divider title="Books" />
+      <TopBooks />
       <Divider title="Top News" />
       <TopBlogs />
     </div>

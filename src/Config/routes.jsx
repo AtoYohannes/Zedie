@@ -11,4 +11,8 @@ export default {
   addDirectories: "/addDirectories",
   addMovies: "/addMovies",
   adminPannel: "/adminPannel",
+  AboutUs: "/AboutUs",
+  termsAndConditions: "/termsAndConditions",
+  aboutUs: "/aboutUs",
+  privacyPolicy: "/privacyPolicy",
 };

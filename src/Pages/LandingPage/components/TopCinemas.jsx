@@ -1,10 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Slider from "react-animated-slider";
 import { Button } from "reactstrap";
-import firebase from "../../../Config/Firebase"
+import firebase from "../../../Config/Firebase";
 
 class TopCinemaLists extends Component {
-
   constructor(props) {
     super(props);
     this.ref = firebase.firestore().collection("Movies");
@@ -51,7 +50,7 @@ class TopCinemaLists extends Component {
     return (
       <div>
         <Slider autoplay={3000} className="slider-wrapper">
-        {this.state.movies.map((movie, index) => (
+          {this.state.movies.map((movie, index) => (
             <div
               key={index}
               className="slider-content"

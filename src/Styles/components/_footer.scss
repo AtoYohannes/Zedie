@@ -1,5 +1,12 @@
-.footerContainer {
-    padding: 30px;
+.footer {
+    .footerContainer {
+        padding: 30px;
+        margin: 0 auto;
+        // width: 50%;
+        img {
+            height: 150px
+        }
+    }
 }
 
 .footerContents {
@@ -21,3 +28,6 @@
 .footerTexts:hover {
     transform: scale(1.010);
 }
+
+
+

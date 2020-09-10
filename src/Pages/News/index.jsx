@@ -8,6 +8,7 @@ import {
   CardText,
   CardTitle,
   CardFooter,
+  CardImgOverlay,
 } from "reactstrap";
 import Avatar from "../../Components/Avatar";
 import { Link } from "react-router-dom";
@@ -79,15 +80,13 @@ class News extends Component {
                   to={`/singleNews/${news.key}`}
                   // to={{ pathname: routes.singleNews }}
                   style={{ textDecoration: "none" }}
+                  className="topBooksContainer"
                 >
-                  <Card className="flex-row blogItem border-0 bg-background zoom">
+                  <Card className=" bg-background zoom">
                     <CardImg className="card-img-left " src={news.imageURLs} />
-                    <CardBody>
-                      <CardTitle className="bg-background title">
-                        <b>{news.header}</b>
-                      </CardTitle>
-                      <CardText className="description">{news.body}</CardText>
-                      <CardFooter className="bg-background">
+                    <CardImgOverlay className="bookOverlay">
+                      <h1>{news.header}</h1>
+                      <div className="bookOverlayAuthor">
                         <Row>
                           <Col align="right">
                             <div>{news.authorName}</div>
@@ -95,8 +94,8 @@ class News extends Component {
                           </Col>
                           <Avatar className="border" src={news.authorImage} />{" "}
                         </Row>
-                      </CardFooter>
-                    </CardBody>
+                      </div>
+                    </CardImgOverlay>
                   </Card>
                 </Link>
               </Col>

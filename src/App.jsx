@@ -16,6 +16,12 @@ const Directories = React.lazy(() => import("./Pages/Directories"));
 const CinemaSchedules = React.lazy(() => import("./Pages/CinemaSchedule"));
 const AddNews = React.lazy(() => import("./Pages/News/components/AddNews"));
 const AdminPannel = React.lazy(() => import("./Pages/Admin"));
+const AboutUs = React.lazy(() => import("./Pages/Static/AboutUs"));
+const TermsAndConditions = React.lazy(() =>
+  import("./Pages/Static/TermAndConditions")
+);
+const PrivacyPolicy = React.lazy(() => import("./Pages/Static/PrivacyPolicy"));
+
 const AddDirectories = React.lazy(() =>
   import("./Pages/Directories/components/addDirectories")
 );
@@ -54,6 +60,17 @@ function App() {
               <Route exact path={routes.books} component={Books} />
               <Route exact path={routes.directories} component={Directories} />
               <Route exact path={routes.adminPannel} component={AdminPannel} />
+              <Route
+                exact
+                path={routes.privacyPolicy}
+                component={PrivacyPolicy}
+              />
+              <Route
+                exact
+                path={routes.termsAndConditions}
+                component={TermsAndConditions}
+              />
+              <Route exact path={routes.aboutUs} component={AboutUs} />
               <Route
                 exact
                 path={routes.cinemaSchedules}
