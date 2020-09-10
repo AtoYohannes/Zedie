@@ -15,4 +15,6 @@ export default {
   termsAndConditions: "/termsAndConditions",
   aboutUs: "/aboutUs",
   privacyPolicy: "/privacyPolicy",
+  contactUs: "/contactUs",
+
 };
