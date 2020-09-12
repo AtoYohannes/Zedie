@@ -7,8 +7,16 @@ class SignIn extends Component {
     // const fbase = firebase.initializeApp(firebase);
     const uiConfig = {
       signInSuccessUrl: "/", //This URL is used to return to that page when we got success response for phone authentication.
-      signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],
-      tosUrl: "/",
+      signInOptions: [{provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, defaultCountry: 'ET',
+      recaptchaParameters: {
+        type: 'image', // 'audio'
+        size: 'invisible', // 'invisible' or 'compact'
+        badge: 'bottomleft' //' bottomright' or 'inline' applies to invisible.
+      },}],
+      tosUrl: "/termsAndConditions",
+      privacyPolicyUrl:function() {
+        window.location.assign('/privacyPolicy');
+      },
       callbacks: {
         signInSuccessWithAuthResult: async function (authResult, redirectUrl) {
           var user = "registered";
@@ -24,6 +32,8 @@ class SignIn extends Component {
           return true;
         },
       },
+      defaultCountry: 'ET', // Set default country to the United Kingdom (+44).
+
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start("#firebaseui-auth-container", uiConfig);
