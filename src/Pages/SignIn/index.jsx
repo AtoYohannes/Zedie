@@ -39,7 +39,9 @@ class SignIn extends Component {
     ui.start("#firebaseui-auth-container", uiConfig);
   }
   render() {
-    return <div id="firebaseui-auth-container"></div>;
+    return (
+      <div id="firebaseui-auth-container" />
+    ) 
   }
 }
 

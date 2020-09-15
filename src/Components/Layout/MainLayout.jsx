@@ -71,6 +71,12 @@ class MainLayout extends React.Component {
           <ModalHeader>You have to Sign In to Continue</ModalHeader>
           <ModalBody className="p-3">
             <SignIn />
+            <div className='p-5'>
+
+            * It’s Free for the first Three (3) days.  After that it would cost 2 Birr per day. Terms & Conditions will be applied.
+            </div>
+
+            
           </ModalBody>
         </Modal>
         <main className="cr-app bg-background">
