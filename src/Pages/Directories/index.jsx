@@ -42,7 +42,7 @@ class Directories extends Component {
   render() {
     return (
       <div className="p-5">
-        <h1 className=" mb-3 text-primary">DIRECTORIES</h1>
+        <h1 className=" mb-3 text-primary">ስልክ ቁጥር ማዉጫ</h1>
         <hr />
         <Row>
           {this.state.directories.map((directory, index) => (

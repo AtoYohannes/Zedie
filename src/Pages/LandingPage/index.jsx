@@ -1,15 +1,34 @@
 import React from "react";
 import Divider from "../../Components/Divider";
-import { TopBlogs, TopCinemaLists, TopBooks } from "./components";
+import { TopBlogs, TopCinemaLists, TopBooks, SignInLand } from "./components";
+// import counterpart from "counterpart";
+import Translate from "react-translate-component";
 
 const LandingPage = () => {
   return (
     <div className="bg-background">
-      <Divider title="Cinema Schedules" />
+      {/* <Divider title="የሲኒማ ጊዜ ሰሌዳ" /> */}
+      <Translate
+        content="CinemaS"
+        component="h3"
+        className="divider bg-background mt-3 mb-3  text-primary text-uppercase"
+      />
       <TopCinemaLists />
-      <Divider title="Books" />
+
+      <Translate
+        content="books"
+        component="h3"
+        className="divider bg-background mt-3 mb-3  text-primary text-uppercase"
+      />
       <TopBooks />
-      <Divider title="Top News" />
+      <SignInLand />
+
+      {/* <Divider title="ዜናዎች" /> */}
+      <Translate
+        content="news"
+        component="h3"
+        className="divider bg-background mt-3 mb-3  text-primary text-uppercase"
+      />
       <TopBlogs />
     </div>
   );

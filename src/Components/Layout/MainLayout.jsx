@@ -3,6 +3,7 @@ import React from "react";
 import { BackDrop, SlidingDrawer } from "../Drawer";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import SignIn from "../../Pages/SignIn";
+import Translate from "react-translate-component";
 
 class MainLayout extends React.Component {
   constructor(props) {
@@ -68,15 +69,14 @@ class MainLayout extends React.Component {
         ref={this.myRef}
       >
         <Modal isOpen={this.state.scrolledSignUp}>
-          <ModalHeader>You have to Sign In to Continue</ModalHeader>
+          <ModalHeader>
+            <Translate content="you" />
+          </ModalHeader>
           <ModalBody className="p-3">
             <SignIn />
-            <div className='p-5'>
-
-            * It’s Free for the first Three (3) days.  After that it would cost 2 Birr per day. Terms & Conditions will be applied.
+            <div className="p-5">
+              <Translate content="in" />
             </div>
-
-            
           </ModalBody>
         </Modal>
         <main className="cr-app bg-background">

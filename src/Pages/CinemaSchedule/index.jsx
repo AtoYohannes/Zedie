@@ -15,7 +15,7 @@ import {
 import Divider from "../../Components/Divider";
 import { MdTimelapse } from "react-icons/md";
 import firebase from "../../Config/Firebase";
-
+import Translate from 'react-translate-component';
 
 class CinemaSchedule extends Component {
   constructor(props) {
@@ -76,13 +76,14 @@ class CinemaSchedule extends Component {
                 <h1>{movie.movieTitle}</h1>
                 <p>{movie.movieDescription}</p>
                 <Button outline color="light">
-                  ONLY AT {movie.cinemaName}
+                <Translate content="only" />{movie.cinemaName}
                 </Button>
               </div>
             </div>
           ))}
         </Slider>
-        <Divider title="Upcoming Movie Schedules" />
+        {/* <Divider title="በቅርብ የሚታዩ ፊልሞች" /> */}
+        <Translate content="up" component="h3" className="divider bg-background mt-3 mb-3  text-primary text-uppercase"/>
         <div className="moviesContainer">
           <Row>
             {this.state.movies.map((movie, index) => (
@@ -98,7 +99,7 @@ class CinemaSchedule extends Component {
                         <MdTimelapse className="pr-1" />
                         {movie.startingTime}
                       </Col>
-                      <Col>to</Col>
+                      <Col> <Translate content="to" /></Col>
                       <Col>
                         {movie.endingTime} <MdTimelapse className="pl-1" />
                       </Col>

@@ -23,8 +23,17 @@ import {
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/ZEDIE.svg";
 import Avatar from "../Avatar";
+import counterpart from 'counterpart';
+import Translate from 'react-translate-component';
+import en from './lang/en';
+import et from './lang/et';
 
 const bem = bn.create("header");
+
+counterpart.registerTranslations('en', en);
+counterpart.registerTranslations('et', et);
+counterpart.setLocale('en');
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -65,6 +74,15 @@ class Header extends React.Component {
     // alert("loggedOut");
   };
 
+  state = {
+    lang: 'en'
+  }
+
+  onLangChange = (e) => {
+    this.setState({lang: e.target.value});
+    counterpart.setLocale(e.target.value);
+  }
+
   render() {
     const isMobile = this.state.isMobile;
     let drawerClasses = "bg-blue text-dark";
@@ -94,26 +112,35 @@ class Header extends React.Component {
                   <>
                     <Link to={{ pathname: routes.cinemaSchedules }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv /> Cinema
+                        <MdTv /> 
+                        
+                        <Translate content="cinema" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.directories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone /> Directories
+                        <MdPhone /> 
+                        <Translate content="directories" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdBook /> Books
+                        <MdBook />
+                        <Translate content="books" />
                       </Button>
                     </Link>
                     <Link to={{ pathname: routes.news }}>
                       <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList /> News
+                        <MdList /> 
+                        <Translate content="news" />
                       </Button>
                     </Link>
+                    <select value={this.state.lang} onChange={this.onLangChange}>
+          <option value="en">EN</option>
+          <option value="et">ET</option>
+        </select>
                     <Avatar />
                     <Button
                       outline
@@ -122,40 +149,51 @@ class Header extends React.Component {
                       className="ml-3"
                       onClick={() => this.logout()}
                     >
-                      Logout
+                    
+                      <Translate content="logout" />
                     </Button>
                   </>
                 ) : (
                   <>
                     <Link to={{ pathname: routes.cinemaSchedules }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv /> Cinema
+                        <MdTv /> 
+                        <Translate content="cinema" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.directories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone /> Directories
+                        <MdPhone /> 
+                        <Translate content="directories" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdBook /> Books
+                        <MdBook /> 
+                        <Translate content="books" />
                       </Button>
                     </Link>
                     <Link to={{ pathname: routes.news }}>
                       <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList /> News
+                        <MdList /> 
+                        <Translate content="news" />
                       </Button>
                     </Link>
+                    <select value={this.state.lang} onChange={this.onLangChange}>
+          <option value="en">EN</option>
+          <option value="et">ET</option>
+        </select>
+                   
                     <Button
                       size="sm"
                       outline
                       onClick={() => this.props.toggle("signIn")}
                       color="dark"
                     >
-                      SignIn
+                      
+                      <Translate content="signin" />
                     </Button>
                   </>
                 )}
@@ -180,7 +218,8 @@ class Header extends React.Component {
                     className="border-dark"
                     onClick={() => this.props.toggle("signIn")}
                   >
-                    <MdExitToApp className="mr-2" /> {"  "} SignIn
+                    <MdExitToApp className="mr-2" /> {"  "}
+                    <Translate content="signin" />
                   </ListGroupItem>
                 </ListGroup>
               </PopoverBody>

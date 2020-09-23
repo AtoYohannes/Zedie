@@ -12,6 +12,8 @@ import {
 } from "reactstrap";
 import firebase from "../../Config/Firebase";
 import AsyncSelect from "react-select/async";
+import counterpart from 'counterpart';
+import Translate from 'react-translate-component';
 
 const db = firebase.firestore();
 
@@ -89,7 +91,9 @@ class Books extends Component {
       <div className="booksContainer">
         <Row>
           <Col md={6} sm={12} xs={12}>
-            <h1 className="mt-4 mb-3 text-primary">BOOKS</h1>
+            {/* <h1 className="mt-4 mb-3 text-primary">መፅሃፍት</h1> */}
+            <Translate content="books" component="h1" className="mt-4 mb-3 text-primary"/>
+
           </Col>
           <Col md={6} sm={12} xs={12}>
             <div>

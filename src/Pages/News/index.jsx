@@ -13,6 +13,8 @@ import {
 import Avatar from "../../Components/Avatar";
 import { Link } from "react-router-dom";
 import firebase from "../../Config/Firebase";
+import counterpart from 'counterpart';
+import Translate from 'react-translate-component';
 
 class News extends Component {
   constructor(props) {
@@ -69,7 +71,8 @@ class News extends Component {
     const isMobile = this.state.isMobile;
     return (
       <div className="blogsContainer">
-        <h1 className="mt-4 mb-3 text-primary">NEWS</h1>
+        {/* <h1 className="mt-4 mb-3 text-primary">ዜናዎች</h1> */}
+        <Translate content="news" component="h1" className="mt-4 mb-3 text-primary"/>
         <hr />
         {isMobile ? (
           <Row>

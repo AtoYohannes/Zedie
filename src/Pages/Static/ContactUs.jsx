@@ -10,6 +10,7 @@ import {
   Button,
 } from "reactstrap";
 import { MdLocalAirport, MdPhone, MdMail } from "react-icons/md";
+import Translate from 'react-translate-component';
 
 const ContactUs = () => {
   return (
@@ -18,7 +19,7 @@ const ContactUs = () => {
         <Card className="border-0 bg-background">
           <CardImg src={entertaiment18} />
           <CardImgOverlay className="overlay">
-            <h1>Contact Us</h1>
+            <h1><Translate content="ContactUs" /></h1>
           </CardImgOverlay>
         </Card>
       </Col>
@@ -32,7 +33,8 @@ const ContactUs = () => {
               xs={12}
               className="p-5 formContainer"
             >
-              <h3>Send Us a Message</h3>
+              <h3><Translate content="SendUs" /></h3>
+              
               <Input
                 className="bg-background p-4 mb-4"
                 placeholder="Your Email Address"
@@ -45,22 +47,26 @@ const ContactUs = () => {
               />
 
               <Button size="sm" block outline>
-                Submit
+                
+                <Translate content="Submit" />
               </Button>
             </Col>
             <Col md={6} sm={12} xs={12} className="p-5">
               <h3>
-                <MdLocalAirport /> Address
+                <MdLocalAirport /> 
+                
+                <Translate content="Address" />
               </h3>
               <p className="ml-4 mb-5">
                 Merkato, Addis Ababa, Ethiopia or call us on (+011) 96 716 6879
               </p>
               <h3>
-                <MdPhone /> Let's Talk
+           
+                <Translate content="Let" />
               </h3>
               <p className="ml-4 mb-5">+1 800 1236879</p>
               <h3>
-                <MdMail /> Sale Support{" "}
+                <MdMail /> <Translate content="Sale" />{" "}
               </h3>
               <p className="ml-4 mb-5">contact@example.com</p>
             </Col>
