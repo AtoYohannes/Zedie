@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import routes from "./Config/routes";
 import { Spinner } from "reactstrap";
 import { MainLayout } from "./Components/Layout";
+import { ToastContainer, Zoom } from "react-toastify";
 
 const SingleBook = React.lazy(() => import("./Pages/SingleBook"));
 const LandingPage = React.lazy(() => import("./Pages/LandingPage"));
@@ -39,6 +40,19 @@ const getBasename = () => {
 function App() {
   return (
     <BrowserRouter basename={getBasename()}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        transition={Zoom}
+        rtl={false}
+        pauseOnFocusLoss
+        closeButton={false}
+        draggable
+        pauseOnHover
+      />
       <Switch>
         {/* <LayoutRoute
               exact

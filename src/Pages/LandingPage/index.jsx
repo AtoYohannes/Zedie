@@ -22,7 +22,6 @@ const LandingPage = () => {
       />
       <TopBooks />
       <SignInLand />
-
       {/* <Divider title="ዜናዎች" /> */}
       <Translate
         content="news"
