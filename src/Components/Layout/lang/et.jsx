@@ -1,8 +1,6 @@
 export default {
-    cinema: 'ሲኒማ',
-   
+     cinema: 'ሲኒማ',
      directories: 'ማውጫዎች',
-     
      books: 'መጽሐፍት',
      news:'ዜና',
      logout:'ውጣ',

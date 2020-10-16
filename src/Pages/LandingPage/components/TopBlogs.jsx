@@ -71,7 +71,7 @@ class TopBlogs extends Component {
       <div className="blogsContainer">
         {isMobile ? (
           <Row>
-            {this.state.news.map((news, index) => (
+            {this.state.news.reverse().map((news, index) => (
               <Col key={index} md={10} sm={12} xs={12} className="mb-5">
                 <Link
                   to={`/singleNews/${news.key}`}

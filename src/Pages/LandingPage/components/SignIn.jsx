@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, Col, FormGroup, Input, Label, Row } from "reactstrap";
-import SignIn from "../../SignIn";
 import Translate from "react-translate-component";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const SignInLanding = () => {
   const notify = () => toast.success("Succesfully Subscribed.");
@@ -14,7 +13,7 @@ const SignInLanding = () => {
           {/* <SignIn /> */}
           <FormGroup>
             <Label>*Enter Your Phone Number</Label>
-            <Input placeholder="0900000000" />
+            <Input type='number' placeholder="0900000000" />
           </FormGroup>
           <Button onClick={notify} outline color="secondary">
             Subscribe

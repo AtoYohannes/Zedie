@@ -87,7 +87,7 @@ class MainLayout extends React.Component {
               toggle={this.drawerToggleClickHandler}
               scrolled={this.state.scrolled}
             />
-            <div className="cr-app-body">
+            <div>
               {/* <SubHeader /> */}
               {children}
             </div>

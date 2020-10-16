@@ -9,7 +9,7 @@ import {
   Input,
   Button,
 } from "reactstrap";
-import { MdLocalAirport, MdPhone, MdMail } from "react-icons/md";
+import { MdLocalAirport, MdMail } from "react-icons/md";
 import Translate from 'react-translate-component';
 
 const ContactUs = () => {

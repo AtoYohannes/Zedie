@@ -61,6 +61,14 @@
   margin-left: 90px;
 }
 .scrolledAppBar {
+  transition-timing-function: ease-out;
+
+  /* Quick on the way out */
+  transition: 0.5s;
+
+  /* Hide thing by pushing it outside by default */
+  transform: translateY(10%);
+
   button {
     color: $light;
     border-color: $light;

@@ -13,8 +13,7 @@ import {
 import Avatar from "../../Components/Avatar";
 import { Link } from "react-router-dom";
 import firebase from "../../Config/Firebase";
-import counterpart from 'counterpart';
-import Translate from 'react-translate-component';
+import Translate from "react-translate-component";
 
 class News extends Component {
   constructor(props) {
@@ -72,12 +71,16 @@ class News extends Component {
     return (
       <div className="blogsContainer">
         {/* <h1 className="mt-4 mb-3 text-primary">ዜናዎች</h1> */}
-        <Translate content="news" component="h1" className="mt-4 mb-3 text-primary"/>
+        <Translate
+          content="news"
+          component="h1"
+          className="mt-4 mb-3 text-primary"
+        />
         <hr />
         {isMobile ? (
           <Row>
             {/* {news.map((news, index) => ( */}
-            {this.state.news.map((news, index) => (
+            {this.state.news.reverse().map((news, index) => (
               <Col key={index} md={6} sm={12} xs={12} className="mb-5">
                 <Link
                   to={`/singleNews/${news.key}`}

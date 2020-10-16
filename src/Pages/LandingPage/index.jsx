@@ -1,7 +1,5 @@
 import React from "react";
-import Divider from "../../Components/Divider";
 import { TopBlogs, TopCinemaLists, TopBooks, SignInLand } from "./components";
-// import counterpart from "counterpart";
 import Translate from "react-translate-component";
 
 const LandingPage = () => {

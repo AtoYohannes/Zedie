@@ -12,7 +12,6 @@ import {
 } from "reactstrap";
 import firebase from "../../Config/Firebase";
 import AsyncSelect from "react-select/async";
-import counterpart from 'counterpart';
 import Translate from 'react-translate-component';
 
 const db = firebase.firestore();

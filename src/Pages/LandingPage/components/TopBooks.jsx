@@ -24,7 +24,7 @@ class TopBooks extends Component {
         description,
         author,
         imageURL,
-        bookURL,
+        bookURL, 
       });
     });
     this.setState({
@@ -40,8 +40,8 @@ class TopBooks extends Component {
     return (
       <div className="topBooksContainer">
         <Row>
-          {this.state.books.map((book, index) => (
-            <Col md={3} sm={6} xs={12} key={index}>
+          {this.state.books.reverse().map((book, index) => (
+            <Col md={6} sm={6} xs={12} key={index}>
               <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
                 <Card className="mb-3 zoom books">
                   <CardImg src={book.imageURL} />

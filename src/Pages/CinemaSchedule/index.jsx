@@ -12,7 +12,6 @@ import {
   CardSubtitle,
   CardText,
 } from "reactstrap";
-import Divider from "../../Components/Divider";
 import { MdTimelapse } from "react-icons/md";
 import firebase from "../../Config/Firebase";
 import Translate from 'react-translate-component';
@@ -86,7 +85,7 @@ class CinemaSchedule extends Component {
         <Translate content="up" component="h3" className="divider bg-background mt-3 mb-3  text-primary text-uppercase"/>
         <div className="moviesContainer">
           <Row>
-            {this.state.movies.map((movie, index) => (
+            {this.state.movies.reverse().map((movie, index) => (
               <Col md={3} sm={12} xs={12} key={index}>
                 <Card className="border-0 movieListContainer zoom mb-3">
                   <CardHeader>{movie.movieTitle}</CardHeader>

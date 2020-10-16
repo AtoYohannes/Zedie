@@ -23,17 +23,16 @@ import {
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/ZEDIE.svg";
 import Avatar from "../Avatar";
-import counterpart from 'counterpart';
-import Translate from 'react-translate-component';
-import en from './lang/en';
-import et from './lang/et';
+import counterpart from "counterpart";
+import Translate from "react-translate-component";
+import en from "./lang/en";
+import et from "./lang/et";
 
 const bem = bn.create("header");
 
-counterpart.registerTranslations('en', en);
-counterpart.registerTranslations('et', et);
-counterpart.setLocale('en');
-
+counterpart.registerTranslations("en", en);
+counterpart.registerTranslations("et", et);
+counterpart.setLocale("en");
 
 class Header extends React.Component {
   constructor(props) {
@@ -71,21 +70,20 @@ class Header extends React.Component {
       localStorage.clear();
     };
     window.location.reload(false);
-    // alert("loggedOut");
   };
 
   state = {
-    lang: 'en'
-  }
+    lang: "en",
+  };
 
   onLangChange = (e) => {
-    this.setState({lang: e.target.value});
+    this.setState({ lang: e.target.value });
     counterpart.setLocale(e.target.value);
-  }
+  };
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "bg-blue text-dark";
+    let drawerClasses = "bg-gradient-theme-right text-dark";
     if (this.props.scrolled) {
       drawerClasses = "bg-gradient-theme-right scrolledAppBar";
     }
@@ -112,15 +110,15 @@ class Header extends React.Component {
                   <>
                     <Link to={{ pathname: routes.cinemaSchedules }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv /> 
-                        
+                        <MdTv />
+
                         <Translate content="cinema" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.directories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone /> 
+                        <MdPhone />
                         <Translate content="directories" />
                       </Button>
                     </Link>
@@ -133,14 +131,17 @@ class Header extends React.Component {
                     </Link>
                     <Link to={{ pathname: routes.news }}>
                       <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList /> 
+                        <MdList />
                         <Translate content="news" />
                       </Button>
                     </Link>
-                    <select value={this.state.lang} onChange={this.onLangChange}>
-          <option value="en">EN</option>
-          <option value="et">ET</option>
-        </select>
+                    <select
+                      value={this.state.lang}
+                      onChange={this.onLangChange}
+                    >
+                      <option value="en">EN</option>
+                      <option value="et">ET</option>
+                    </select>
                     <Avatar />
                     <Button
                       outline
@@ -149,7 +150,6 @@ class Header extends React.Component {
                       className="ml-3"
                       onClick={() => this.logout()}
                     >
-                    
                       <Translate content="logout" />
                     </Button>
                   </>
@@ -157,42 +157,44 @@ class Header extends React.Component {
                   <>
                     <Link to={{ pathname: routes.cinemaSchedules }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv /> 
+                        <MdTv />
                         <Translate content="cinema" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.directories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone /> 
+                        <MdPhone />
                         <Translate content="directories" />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdBook /> 
+                        <MdBook />
                         <Translate content="books" />
                       </Button>
                     </Link>
                     <Link to={{ pathname: routes.news }}>
                       <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList /> 
+                        <MdList />
                         <Translate content="news" />
                       </Button>
                     </Link>
-                    <select value={this.state.lang} onChange={this.onLangChange}>
-          <option value="en">EN</option>
-          <option value="et">ET</option>
-        </select>
-                   
+                    <select
+                      value={this.state.lang}
+                      onChange={this.onLangChange}
+                    >
+                      <option value="en">EN</option>
+                      <option value="et">ET</option>
+                    </select>
+
                     <Button
                       size="sm"
                       outline
                       onClick={() => this.props.toggle("signIn")}
                       color="dark"
                     >
-                      
                       <Translate content="signin" />
                     </Button>
                   </>

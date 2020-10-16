@@ -32,8 +32,9 @@ button,
     font-weight: 500;
 }
 .cr-app {
+    width: 60%;
     display: flex;
-    width: 100%;
+    margin: 0 auto;
     min-height: 100vh;
     overflow-x: hidden;
     button {

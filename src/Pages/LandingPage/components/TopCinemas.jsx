@@ -50,7 +50,7 @@ class TopCinemaLists extends Component {
     return (
       <div>
         <Slider autoplay={3000} className="slider-wrapper">
-          {this.state.movies.map((movie, index) => (
+          {this.state.movies.reverse().map((movie, index) => (
             <div
               key={index}
               className="slider-content"
