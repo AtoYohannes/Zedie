@@ -6,7 +6,7 @@ import Translate from 'react-translate-component';
 const SignIn = () => {
   return (
     <Card className="signIn border-0">
-      <CardHeader align="center" className="bg-background mb-3">
+      <CardHeader align="center" className="  mb-3">
         <h4><Translate content="signup2" /> ዘዴ</h4>
       </CardHeader>
       <Col align="center">

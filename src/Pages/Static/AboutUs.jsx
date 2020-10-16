@@ -12,7 +12,7 @@ class AboutUs extends Component {
     return (
       <div className="aboutUsContainer">
         <Col md={12} sm={12} xs={12}>
-          <Card className="border-0 bg-background">
+          <Card className="border-0  ">
             <CardImg src={entertaiment21} />
             <CardImgOverlay className="overlay">
               <h1><Translate content="AboutUs" /></h1>

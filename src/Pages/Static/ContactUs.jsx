@@ -16,7 +16,7 @@ const ContactUs = () => {
   return (
     <div className="contactUsContainer">
       <Col md={12} sm={12} xs={12}>
-        <Card className="border-0 bg-background">
+        <Card className="border-0  ">
           <CardImg src={entertaiment18} />
           <CardImgOverlay className="overlay">
             <h1><Translate content="ContactUs" /></h1>
@@ -24,7 +24,7 @@ const ContactUs = () => {
         </Card>
       </Col>
       <Col md={12} sm={12} xs={12} className="threads">
-        <Card className="bg-background">
+        <Card className=" ">
           <Row>
             <Col
               align="center"
@@ -36,12 +36,12 @@ const ContactUs = () => {
               <h3><Translate content="SendUs" /></h3>
               
               <Input
-                className="bg-background p-4 mb-4"
+                className="  p-4 mb-4"
                 placeholder="Your Email Address"
                 type="email"
               />
               <Input
-                className="bg-background p-4 mt-1 mb-3"
+                className="  p-4 mt-1 mb-3"
                 placeholder="Your Email Address"
                 type="textarea"
               />

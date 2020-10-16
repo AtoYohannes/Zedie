@@ -16,7 +16,6 @@ import {
   MdReorder,
   MdList,
   MdExitToApp,
-  MdTv,
   MdPhone,
   MdBook,
 } from "react-icons/md";
@@ -83,12 +82,8 @@ class Header extends React.Component {
 
   render() {
     const isMobile = this.state.isMobile;
-    let drawerClasses = "bg-gradient-theme-right text-dark";
-    if (this.props.scrolled) {
-      drawerClasses = "bg-gradient-theme-right scrolledAppBar";
-    }
     return (
-      <Navbar dark fixed="top" expand className={drawerClasses}>
+      <Navbar dark fixed="top" expand className="bg-light text-dark">
         <Link
           to={{ pathname: routes.homePage }}
           style={{ textDecoration: "none" }}
@@ -108,14 +103,6 @@ class Header extends React.Component {
               <NavLink>
                 {localStorage.getItem("usersData") ? (
                   <>
-                    <Link to={{ pathname: routes.cinemaSchedules }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv />
-
-                        <Translate content="cinema" />
-                      </Button>
-                    </Link>
-
                     <Link to={{ pathname: routes.directories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdPhone />
@@ -129,12 +116,7 @@ class Header extends React.Component {
                         <Translate content="books" />
                       </Button>
                     </Link>
-                    <Link to={{ pathname: routes.news }}>
-                      <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList />
-                        <Translate content="news" />
-                      </Button>
-                    </Link>
+
                     <select
                       value={this.state.lang}
                       onChange={this.onLangChange}
@@ -155,20 +137,6 @@ class Header extends React.Component {
                   </>
                 ) : (
                   <>
-                    <Link to={{ pathname: routes.cinemaSchedules }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdTv />
-                        <Translate content="cinema" />
-                      </Button>
-                    </Link>
-
-                    <Link to={{ pathname: routes.directories }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone />
-                        <Translate content="directories" />
-                      </Button>
-                    </Link>
-
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdBook />

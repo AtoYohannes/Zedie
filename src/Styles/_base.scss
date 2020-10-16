@@ -31,12 +31,18 @@ button,
     font-family: Itim ,Belleza, Poppins, Roboto, Raleway, "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
 }
+
+.app-container {
+    background-color: $primary;
+
 .cr-app {
-    width: 60%;
     display: flex;
     margin: 0 auto;
+    width: 60%;
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: $light;
+
     button {
         padding-left: 30px;
         padding-right: 30px;
@@ -48,13 +54,16 @@ button,
         transform: scale(1.09);
     }
     input {
-            margin-top: 10px;
+        margin-top: 10px;
     }
 }
 
 .cr-app-body {
-    margin-top: 65px;
+    margin-top: 90px;
     min-height: 100vh;
 }
+
+}
+
 
 

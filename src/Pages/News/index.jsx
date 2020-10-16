@@ -88,7 +88,7 @@ class News extends Component {
                   style={{ textDecoration: "none" }}
                   className="topBooksContainer"
                 >
-                  <Card className=" bg-background zoom">
+                  <Card className="   zoom">
                     <CardImg className="card-img-left " src={news.imageURLs} />
                     <CardImgOverlay className="bookOverlay">
                       <h1>{news.header}</h1>
@@ -116,13 +116,13 @@ class News extends Component {
                   to={`/singleNews/${news.key}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <Card className="blogItemMobile border bg-background">
+                  <Card className="blogItemMobile border  ">
                     <CardBody>
-                      <CardTitle className="bg-background title">
+                      <CardTitle className="  title">
                         <b>{news.header}</b>
                       </CardTitle>
                       <CardText className="description">{news.body}</CardText>
-                      <CardFooter className="bg-background">
+                      <CardFooter className=" ">
                         <Row>
                           <Col align="right">
                             <div>{news.authorName}</div>

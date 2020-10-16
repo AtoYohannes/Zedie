@@ -3,7 +3,7 @@ import React from "react";
 
 const Divider = ({ title }) => {
   return (
-    <div className="divider bg-background mt-3 mb-3">
+    <div className="divider   mt-3 mb-3">
       {/* <MdLineStyle className="text-primary" size={30} /> */}
       <div className="ml-1 mr-1">
         <h3>

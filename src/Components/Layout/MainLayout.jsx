@@ -61,6 +61,7 @@ class MainLayout extends React.Component {
     }
     return (
       <div
+      className='app-container'
         style={{
           height: "100vh",
           overflow: "scroll",
@@ -79,7 +80,7 @@ class MainLayout extends React.Component {
             </div>
           </ModalBody>
         </Modal>
-        <main className="cr-app bg-background">
+        <main className="cr-app">
           <SlidingDrawer show={this.state.drawerOpen} type={this.state.type} />
           {backdrop}
           <Content fluid>
@@ -89,7 +90,11 @@ class MainLayout extends React.Component {
             />
             <div>
               {/* <SubHeader /> */}
+              <div className='cr-app-body'>
+
               {children}
+              </div>
+
             </div>
             <div className="mt-5">
               <Footer />

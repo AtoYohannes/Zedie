@@ -10,10 +10,9 @@ const SignInLanding = () => {
     <div className="landingSignInContainer">
       <Row>
         <Col md={6} sm={12} xs={12}>
-          {/* <SignIn /> */}
           <FormGroup>
-            <Label>*Enter Your Phone Number</Label>
-            <Input type='number' placeholder="0900000000" />
+            <Label>* Enter Your Phone Number</Label>
+            <Input type="number" placeholder="0900000000" />
           </FormGroup>
           <Button onClick={notify} outline color="secondary">
             Subscribe

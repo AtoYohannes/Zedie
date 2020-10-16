@@ -82,7 +82,7 @@ class CinemaSchedule extends Component {
           ))}
         </Slider>
         {/* <Divider title="በቅርብ የሚታዩ ፊልሞች" /> */}
-        <Translate content="up" component="h3" className="divider bg-background mt-3 mb-3  text-primary text-uppercase"/>
+        <Translate content="up" component="h3" className="divider   mt-3 mb-3  text-primary text-uppercase"/>
         <div className="moviesContainer">
           <Row>
             {this.state.movies.reverse().map((movie, index) => (

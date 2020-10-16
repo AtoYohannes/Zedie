@@ -44,7 +44,7 @@ class RelatedNews extends Component {
               <Link to={`/singleNews/${news.key}`}>
                 <Card>
                   <CardImg src={news.imageURLs} />
-                  <CardBody align="center" className="bg-background">
+                  <CardBody align="center" className=" ">
                     {news.header}
                   </CardBody>
                 </Card>
