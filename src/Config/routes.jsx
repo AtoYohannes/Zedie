@@ -16,5 +16,9 @@ export default {
   aboutUs: "/aboutUs",
   privacyPolicy: "/privacyPolicy",
   contactUs: "/contactUs",
+  levels: "/levels",
+  quizes: "/quizes",
+  quizCategories: "/quizCategories",
+  addQuiz: "/addQuiz",
 
 };

@@ -5,35 +5,42 @@ import firebase from "../../../Config/Firebase";
 class TopBooks extends Component {
   constructor(props) {
     super(props);
-    this.ref = firebase.firestore().collection("Books");
-    this.unsubscribe = null;
     this.state = {
       books: [],
       isMobile: false,
       selectedBook: [],
     };
   }
-  onCollectionUpdate = (querySnapshot) => {
-    const books = [];
-    querySnapshot.forEach((doc) => {
-      const { title, description, author, imageURL, bookURL } = doc.data();
-      books.push({
-        key: doc.id,
-        doc,
-        title,
-        description,
-        author,
-        imageURL,
-        bookURL, 
-      });
-    });
-    this.setState({
-      books,
-    });
-  };
-
   componentDidMount() {
-    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    this.getBooks();
+  }
+
+  getBooks() {
+    const db = firebase.firestore();
+    const query = db.collection("Books");
+    query.onSnapshot(
+      (querySnapshot) => {
+        const books = [];
+        querySnapshot.forEach((doc) => {
+          const { title, description, author, imageURL, bookURL } = doc.data();
+          books.push({
+            key: doc.id,
+            doc,
+            title,
+            description,
+            author,
+            imageURL,
+            bookURL,
+          });
+        });
+        this.setState({
+          books,
+        });
+      },
+      (err) => {
+        console.log(`Encountered error: ${err}`);
+      }
+    );
   }
 
   render() {

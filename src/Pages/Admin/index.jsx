@@ -15,31 +15,17 @@ class AdminPannel extends Component {
           <CardHeader>Admin Pannel</CardHeader>
           <CardBody>
             <Row>
-              <Col align="center" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.addMovies }}>
-                  <Button outline size="lg">
-                    Add Movies
+              <Col align="center" md={6} sm={12} xs={12}>
+                <Link to={{ pathname: routes.addQuiz }}>
+                  <Button block outline size="lg">
+                    Add Quiz
                   </Button>
                 </Link>
               </Col>
-              <Col align="center" md={3} sm={12} xs={12}>
+              <Col align="center" md={6} sm={12} xs={12}>
                 <Link to={{ pathname: routes.addBooks }}>
-                  <Button outline size="lg">
+                  <Button block outline size="lg">
                     Add Books
-                  </Button>
-                </Link>
-              </Col>
-              <Col align="center" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.addDirectories }}>
-                  <Button outline size="lg">
-                    Add Directories
-                  </Button>
-                </Link>
-              </Col>
-              <Col align="center" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.addNews }}>
-                  <Button outline size="lg">
-                    Add News
                   </Button>
                 </Link>
               </Col>

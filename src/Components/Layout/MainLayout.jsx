@@ -80,6 +80,8 @@ class MainLayout extends React.Component {
             </div>
           </ModalBody>
         </Modal>
+        <div className='bodyContainer'>
+
         <main className="cr-app">
           <SlidingDrawer show={this.state.drawerOpen} type={this.state.type} />
           {backdrop}
@@ -101,6 +103,8 @@ class MainLayout extends React.Component {
             </div>
           </Content>
         </main>
+        </div>
+
       </div>
     );
   }

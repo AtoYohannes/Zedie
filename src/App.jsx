@@ -32,6 +32,12 @@ const AddBooks = React.lazy(() => import("./Pages/Books/components/AddBooks"));
 const AddMovies = React.lazy(() =>
   import("./Pages/CinemaSchedule/components/AddMovies")
 );
+const QuizCategoriesList = React.lazy(() => import("./Pages/Quiz/index"));
+const AddQuiz = React.lazy(() => import("./Pages/Quiz/components/AddQuiz"));
+const LevelsDisplay = React.lazy(() =>
+  import("./Pages/Quiz/components/Levels")
+);
+const Quizes = React.lazy(() => import("./Pages/Quiz/components/Questions"));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split("/").pop()}`;
@@ -102,6 +108,14 @@ function App() {
                 component={AddDirectories}
               />
               <Route exact path={routes.addMovies} component={AddMovies} />
+              <Route
+                exact
+                path={routes.quizCategories}
+                component={QuizCategoriesList}
+              />
+              <Route exact path={routes.quizes} component={Quizes} />
+              <Route exact path={routes.levels} component={LevelsDisplay} />
+              <Route exact path={routes.addQuiz} component={AddQuiz} />
             </React.Suspense>
           </MainLayout>
         </React.Fragment>
@@ -111,28 +125,5 @@ function App() {
   );
 }
 
-// const query = ({ width }) => {
-//   if (width < 575) {
-//     return { breakpoint: "xs" };
-//   }
-
-//   if (576 < width && width < 767) {
-//     return { breakpoint: "sm" };
-//   }
-
-//   if (768 < width && width < 991) {
-//     return { breakpoint: "md" };
-//   }
-
-//   if (992 < width && width < 1199) {
-//     return { breakpoint: "lg" };
-//   }
-
-//   if (width > 1200) {
-//     return { breakpoint: "xl" };
-//   }
-
-//   return { breakpoint: "xs" };
-// };
 
 export default App;

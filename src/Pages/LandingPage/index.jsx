@@ -1,21 +1,21 @@
 import React from "react";
-import {  TopCinemaLists, TopBooks, SignInLand } from "./components";
+import { TopCinemaLists, TopBooks, SignInLand } from "./components";
 import Translate from "react-translate-component";
 
 const LandingPage = () => {
   return (
-    <div >
+    <div>
       <Translate
         content="CinemaS"
         component="h3"
-        className="divider   mt-3 mb-3  text-primary text-uppercase"
+        className="divider bg-light mt-3 mb-3  text-primary text-uppercase"
       />
       <TopCinemaLists />
 
       <Translate
         content="books"
         component="h3"
-        className="divider   mt-3 mb-3  text-primary text-uppercase"
+        className="divider bg-light mt-3 mb-3  text-primary text-uppercase"
       />
       <TopBooks />
       <SignInLand />

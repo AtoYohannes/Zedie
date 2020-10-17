@@ -40,6 +40,7 @@ button,
     margin: 0 auto;
     width: 60%;
     min-height: 100vh;
+    height: auto;
     overflow-x: hidden;
     background-color: $light;
 
@@ -58,11 +59,14 @@ button,
     }
 }
 
-.cr-app-body {
+}
+.bodyContainer {
     margin-top: 90px;
-    min-height: 100vh;
 }
 
+.cr-app-body {
+    min-height: 100vh;
+    height: auto;
 }
 
 

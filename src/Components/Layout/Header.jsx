@@ -16,8 +16,8 @@ import {
   MdReorder,
   MdList,
   MdExitToApp,
-  MdPhone,
   MdBook,
+  MdWallpaper,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/ZEDIE.svg";
@@ -28,7 +28,6 @@ import en from "./lang/en";
 import et from "./lang/et";
 
 const bem = bn.create("header");
-
 counterpart.registerTranslations("en", en);
 counterpart.registerTranslations("et", et);
 counterpart.setLocale("en");
@@ -103,10 +102,10 @@ class Header extends React.Component {
               <NavLink>
                 {localStorage.getItem("usersData") ? (
                   <>
-                    <Link to={{ pathname: routes.directories }}>
+                    <Link to={{ pathname: routes.quizCategories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
-                        <MdPhone />
-                        <Translate content="directories" />
+                        <MdWallpaper />
+                        <Translate content="quizCategories" />
                       </Button>
                     </Link>
 

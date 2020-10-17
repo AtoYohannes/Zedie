@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import firebase from "../../Config/Firebase";
 import AsyncSelect from "react-select/async";
-import Translate from 'react-translate-component';
+import Translate from "react-translate-component";
 
 const db = firebase.firestore();
 
@@ -25,6 +25,7 @@ class Books extends Component {
       books: [],
       isMobile: false,
       selectedBook: [],
+      filtered: true,
     };
   }
 
@@ -91,8 +92,11 @@ class Books extends Component {
         <Row>
           <Col md={6} sm={12} xs={12}>
             {/* <h1 className="mt-4 mb-3 text-primary">መፅሃፍት</h1> */}
-            <Translate content="books" component="h1" className="mt-4 mb-3 text-primary"/>
-
+            <Translate
+              content="books"
+              component="h1"
+              className="mt-4 mb-3 text-primary"
+            />
           </Col>
           <Col md={6} sm={12} xs={12}>
             <div>
@@ -127,7 +131,7 @@ class Books extends Component {
         <hr />
         <Row>
           {this.state.books.map((book, index) => (
-            <Col md={3} sm={6} xs={12} key={index}>
+            <Col md={4} sm={6} xs={12} key={index}>
               <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
                 <Card className="mb-3 zoom books">
                   <CardImg src={book.imageURL} />
