@@ -9,7 +9,14 @@ const QuizesCategories = () => {
     <div className="p-5">
       <Row>
         <Col md={6} sm={12} xs={12}>
-          <Link to={{ pathname: routes.levels }}>
+          <Link
+            to={{
+              pathname: routes.levels,
+              state: {
+                category: "Technology",
+              },
+            }}
+          >
             <Card className="border-0 zoom mb-5">
               <CardImg src={entertaiment01} />
               <CardHeader>Technology</CardHeader>
@@ -17,22 +24,49 @@ const QuizesCategories = () => {
           </Link>
         </Col>
         <Col md={6} sm={12} xs={12}>
-          <Card className="border-0 zoom mb-5">
-            <CardImg src={entertaiment01} />
-            <CardHeader>Culture</CardHeader>
-          </Card>
+          <Link
+            to={{
+              pathname: routes.levels,
+              state: {
+                category: "Culture",
+              },
+            }}
+          >
+            <Card className="border-0 zoom mb-5">
+              <CardImg src={entertaiment01} />
+              <CardHeader>Culture</CardHeader>
+            </Card>
+          </Link>
         </Col>
         <Col md={6} sm={12} xs={12}>
-          <Card className="border-0 zoom mb-5">
-            <CardImg src={entertaiment01} />
-            <CardHeader>Something</CardHeader>
-          </Card>
+          <Link
+            to={{
+              pathname: routes.levels,
+              state: {
+                category: "Something",
+              },
+            }}
+          >
+            <Card className="border-0 zoom mb-5">
+              <CardImg src={entertaiment01} />
+              <CardHeader>Something</CardHeader>
+            </Card>
+          </Link>
         </Col>
         <Col md={6} sm={12} xs={12}>
-          <Card className="border-0 zoom mb-5">
-            <CardImg src={entertaiment01} />
-            <CardHeader>General Knowledge</CardHeader>
-          </Card>
+          <Link
+            to={{
+              pathname: routes.levels,
+              state: {
+                category: "General Knowledge",
+              },
+            }}
+          >
+            <Card className="border-0 zoom mb-5">
+              <CardImg src={entertaiment01} />
+              <CardHeader>General Knowledge</CardHeader>
+            </Card>
+          </Link>
         </Col>
       </Row>
     </div>
