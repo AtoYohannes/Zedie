@@ -14,7 +14,7 @@ const SingleNews = React.lazy(() => import("./Pages/SingleNews"));
 const Books = React.lazy(() => import("./Pages/Books"));
 const News = React.lazy(() => import("./Pages/News"));
 const Directories = React.lazy(() => import("./Pages/Directories"));
-const CinemaSchedules = React.lazy(() => import("./Pages/CinemaSchedule"));
+const WritingChallenge = React.lazy(() => import("./Pages/WritingChallenge"));
 const AddNews = React.lazy(() => import("./Pages/News/components/AddNews"));
 const AdminPannel = React.lazy(() => import("./Pages/Admin"));
 const AboutUs = React.lazy(() => import("./Pages/Static/AboutUs"));
@@ -29,8 +29,8 @@ const AddDirectories = React.lazy(() =>
   import("./Pages/Directories/components/addDirectories")
 );
 const AddBooks = React.lazy(() => import("./Pages/Books/components/AddBooks"));
-const AddMovies = React.lazy(() =>
-  import("./Pages/CinemaSchedule/components/AddMovies")
+const AddWritingChallenge = React.lazy(() =>
+  import("./Pages/WritingChallenge/components/AddWritingChallenge")
 );
 const QuizCategoriesList = React.lazy(() => import("./Pages/Quiz/index"));
 const AddQuiz = React.lazy(() => import("./Pages/Quiz/components/AddQuiz"));
@@ -60,12 +60,6 @@ function App() {
         pauseOnHover
       />
       <Switch>
-        {/* <LayoutRoute
-              exact
-              path={routes.signIn}
-              layout={EmptyLayout}
-              component={SignInPage}
-            /> */}
         <React.Fragment>
           <MainLayout>
             <React.Suspense
@@ -83,7 +77,6 @@ function App() {
               <Route exact path={routes.directories} component={Directories} />
               <Route exact path={routes.adminPannel} component={AdminPannel} />
               <Route exact path={routes.contactUs} component={ContactUs} />
-
               <Route
                 exact
                 path={routes.privacyPolicy}
@@ -98,7 +91,7 @@ function App() {
               <Route
                 exact
                 path={routes.cinemaSchedules}
-                component={CinemaSchedules}
+                component={WritingChallenge}
               />
               <Route exact path={routes.addNews} component={AddNews} />
               <Route exact path={routes.addBooks} component={AddBooks} />
@@ -107,7 +100,11 @@ function App() {
                 path={routes.addDirectories}
                 component={AddDirectories}
               />
-              <Route exact path={routes.addMovies} component={AddMovies} />
+              <Route
+                exact
+                path={routes.addWritingChallenge}
+                component={AddWritingChallenge}
+              />
               <Route
                 exact
                 path={routes.quizCategories}
@@ -124,6 +121,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;

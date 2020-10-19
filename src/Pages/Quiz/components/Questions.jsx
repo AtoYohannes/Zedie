@@ -9,6 +9,7 @@ import {
   Button,
   CardImg,
 } from "reactstrap";
+import Swal from "sweetalert2";
 import firebase from "../../../Config/Firebase";
 
 class Questions extends React.Component {
@@ -129,7 +130,14 @@ class Questions extends React.Component {
     let { quizes, score } = this.state;
 
     if (choice !== quiz.answer) {
-      alert(`Incorrect answer!, the answer is ${quiz.answer}`);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `The Correct answer is ${quiz.answer} `,
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
       score = score - 1;
     }
     const index = quizes.indexOf(quiz);

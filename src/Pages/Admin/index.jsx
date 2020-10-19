@@ -29,6 +29,13 @@ class AdminPannel extends Component {
                   </Button>
                 </Link>
               </Col>
+              <Col align="center" md={6} sm={12} xs={12}>
+                <Link to={{ pathname: routes.addWritingChallenge }}>
+                  <Button block outline size="lg">
+                    Add Writing Challenge
+                  </Button>
+                </Link>
+              </Col>
             </Row>
           </CardBody>
         </Card>

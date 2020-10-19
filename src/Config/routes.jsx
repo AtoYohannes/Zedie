@@ -9,7 +9,7 @@ export default {
   addNews: "/addNews",
   addBooks: "/addBooks",
   addDirectories: "/addDirectories",
-  addMovies: "/addMovies",
+  addWritingChallenge: "/addWritingChallenge",
   adminPannel: "/adminPannel",
   AboutUs: "/AboutUs",
   termsAndConditions: "/termsAndConditions",
@@ -20,5 +20,4 @@ export default {
   quizes: "/quizes",
   quizCategories: "/quizCategories",
   addQuiz: "/addQuiz",
-
 };

@@ -12,13 +12,7 @@ import {
 } from "reactstrap";
 import bn from "../../utils/bemnames";
 import routes from "../../Config/routes";
-import {
-  MdReorder,
-  MdList,
-  MdExitToApp,
-  MdBook,
-  MdWallpaper,
-} from "react-icons/md";
+import { MdReorder, MdExitToApp, MdBook, MdWallpaper } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/ZEDIE.svg";
 import Avatar from "../Avatar";
@@ -136,16 +130,17 @@ class Header extends React.Component {
                   </>
                 ) : (
                   <>
+                    <Link to={{ pathname: routes.quizCategories }}>
+                      <Button outline size="sm" color="dark" className="mr-2">
+                        <MdWallpaper />
+                        <Translate content="quizCategories" />
+                      </Button>
+                    </Link>
+
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdBook />
                         <Translate content="books" />
-                      </Button>
-                    </Link>
-                    <Link to={{ pathname: routes.news }}>
-                      <Button outline size="sm" color="dark" className="mr-5">
-                        <MdList />
-                        <Translate content="news" />
                       </Button>
                     </Link>
                     <select
