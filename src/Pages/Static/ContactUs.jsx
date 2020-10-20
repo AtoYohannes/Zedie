@@ -10,7 +10,7 @@ import {
   Button,
 } from "reactstrap";
 import { MdLocalAirport, MdMail } from "react-icons/md";
-import Translate from 'react-translate-component';
+import Translate from "react-translate-component";
 
 const ContactUs = () => {
   return (
@@ -19,7 +19,9 @@ const ContactUs = () => {
         <Card className="border-0  ">
           <CardImg src={entertaiment18} />
           <CardImgOverlay className="overlay">
-            <h1><Translate content="ContactUs" /></h1>
+            <h1>
+              <Translate className="translate" content="ContactUs" />
+            </h1>
           </CardImgOverlay>
         </Card>
       </Col>
@@ -33,8 +35,10 @@ const ContactUs = () => {
               xs={12}
               className="p-5 formContainer"
             >
-              <h3><Translate content="SendUs" /></h3>
-              
+              <h3>
+                <Translate className="translate" content="SendUs" />
+              </h3>
+
               <Input
                 className="  p-4 mb-4"
                 placeholder="Your Email Address"
@@ -47,26 +51,24 @@ const ContactUs = () => {
               />
 
               <Button size="sm" block outline>
-                
-                <Translate content="Submit" />
+                <Translate className="translate" content="Submit" />
               </Button>
             </Col>
             <Col md={6} sm={12} xs={12} className="p-5">
               <h3>
-                <MdLocalAirport /> 
-                
-                <Translate content="Address" />
+                <MdLocalAirport />
+
+                <Translate className="translate" content="Address" />
               </h3>
               <p className="ml-4 mb-5">
                 Merkato, Addis Ababa, Ethiopia or call us on (+011) 96 716 6879
               </p>
               <h3>
-           
-                <Translate content="Let" />
+                <Translate className="translate" content="Let" />
               </h3>
               <p className="ml-4 mb-5">+1 800 1236879</p>
               <h3>
-                <MdMail /> <Translate content="Sale" />{" "}
+                <MdMail /> <Translate className="translate" content="Sale" />{" "}
               </h3>
               <p className="ml-4 mb-5">contact@example.com</p>
             </Col>

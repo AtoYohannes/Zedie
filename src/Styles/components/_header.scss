@@ -20,17 +20,17 @@
 .logoContainer {
   margin-left: 100px;
   img {
-    height: 40px
+    height: 40px;
   }
 }
 .searchContainer {
-  width: 400px
+  width: 400px;
 }
 .searchImgContainer {
   width: 200px;
   height: 150px;
   background-color: #ffffff;
-  object-fit:cover;
+  object-fit: cover;
 }
 .searchImgContainer img {
   height: 300%;
@@ -38,7 +38,7 @@
   vertical-align: middle;
   height: 100%;
   width: 100%;
-  object-fit:cover;
+  object-fit: cover;
 }
 .searchResultsHeader {
   margin-bottom: 10px;
@@ -47,17 +47,17 @@
   margin-top: 30px;
 }
 .popoverSearch {
-  box-shadow:  7px 7px 7px darken($color: #d4d4d4, $amount: 5);;
-
+  box-shadow: 7px 7px 7px darken($color: #d4d4d4, $amount: 5);
 }
 .headerLogoContainer {
   margin-left: 40px;
 }
 .divider {
-  background-color: #FFFFFF;
+  background-color: $background;
   margin-top: 1px;
   margin-bottom: 1px;
   margin-left: 90px;
+  font-size: 17px;
 }
 .scrolledAppBar {
   transition-timing-function: ease-out;
@@ -72,4 +72,10 @@
     color: $light;
     border-color: $light;
   }
+}
+
+.shadow-box-example {
+  height: 120px;
+  width: 100%;
+  background-color: #000;
 }

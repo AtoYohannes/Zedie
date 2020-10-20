@@ -99,20 +99,26 @@ class Header extends React.Component {
                     <Link to={{ pathname: routes.writingChallenge }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
-                        <Translate content="quizCategories" />
+                        <Translate
+                          className="translate"
+                          content="quizCategories"
+                        />
                       </Button>
                     </Link>
                     <Link to={{ pathname: routes.quizCategories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
-                        <Translate content="quizCategories" />
+                        <Translate
+                          className="translate"
+                          content="quizCategories"
+                        />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdBook />
-                        <Translate content="books" />
+                        <Translate className="translate" content="books" />
                       </Button>
                     </Link>
 
@@ -131,7 +137,7 @@ class Header extends React.Component {
                       className="ml-3"
                       onClick={() => this.logout()}
                     >
-                      <Translate content="logout" />
+                      <Translate className="translate" content="logout" />
                     </Button>
                   </>
                 ) : (
@@ -139,20 +145,26 @@ class Header extends React.Component {
                     <Link to={{ pathname: routes.writingChallenge }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
-                        <Translate content="quizCategories" />
+                        <Translate
+                          className="translate"
+                          content="quizCategories"
+                        />
                       </Button>
                     </Link>
                     <Link to={{ pathname: routes.quizCategories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
-                        <Translate content="quizCategories" />
+                        <Translate
+                          className="translate"
+                          content="quizCategories"
+                        />
                       </Button>
                     </Link>
 
                     <Link to={{ pathname: routes.books }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdBook />
-                        <Translate content="books" />
+                        <Translate className="translate" content="books" />
                       </Button>
                     </Link>
                     <select
@@ -169,7 +181,7 @@ class Header extends React.Component {
                       onClick={() => this.props.toggle("signIn")}
                       color="dark"
                     >
-                      <Translate content="signin" />
+                      <Translate className="translate" content="signin" />
                     </Button>
                   </>
                 )}
@@ -195,7 +207,7 @@ class Header extends React.Component {
                     onClick={() => this.props.toggle("signIn")}
                   >
                     <MdExitToApp className="mr-2" /> {"  "}
-                    <Translate content="signin" />
+                    <Translate className="translate" content="signin" />
                   </ListGroupItem>
                 </ListGroup>
               </PopoverBody>

@@ -20,7 +20,7 @@ const SignInLanding = () => {
         </Col>
         <Col md={6} sm={12} xs={12} className="mt-5 text-dark">
           <h4>
-            <Translate content="in" />
+            <Translate className="translate" content="in" />
           </h4>
         </Col>
       </Row>

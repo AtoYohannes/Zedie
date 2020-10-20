@@ -1,5 +1,10 @@
 import React from "react";
-import { TopCinemaLists, TopBooks, SignInLand } from "./components";
+import {
+  WordsShuffle,
+  TopBooks,
+  SignInLand,
+  TopChallenges,
+} from "./components";
 import Translate from "react-translate-component";
 
 const LandingPage = () => {
@@ -10,7 +15,8 @@ const LandingPage = () => {
         component="h3"
         className="divider bg-light mt-3 mb-3  text-primary text-uppercase"
       />
-      <TopCinemaLists />
+      {/* <WordsShuffle /> */}
+      <TopChallenges />
 
       <Translate
         content="books"

@@ -61,7 +61,7 @@ class MainLayout extends React.Component {
     }
     return (
       <div
-      className='app-container'
+        className="app-container"
         style={{
           height: "100vh",
           overflow: "scroll",
@@ -80,31 +80,28 @@ class MainLayout extends React.Component {
             </div>
           </ModalBody>
         </Modal>
-        <div className='bodyContainer'>
-
-        <main className="cr-app">
-          <SlidingDrawer show={this.state.drawerOpen} type={this.state.type} />
-          {backdrop}
-          <Content fluid>
-            <Header
-              toggle={this.drawerToggleClickHandler}
-              scrolled={this.state.scrolled}
+        <div className="bodyContainer">
+          <main className="cr-app">
+            <SlidingDrawer
+              show={this.state.drawerOpen}
+              type={this.state.type}
             />
-            <div>
-              {/* <SubHeader /> */}
-              <div className='cr-app-body'>
-
-              {children}
+            {backdrop}
+            <Content fluid>
+              <Header
+                toggle={this.drawerToggleClickHandler}
+                scrolled={this.state.scrolled}
+              />
+              <div>
+                {/* <SubHeader /> */}
+                <div className="cr-app-body">{children}</div>
               </div>
-
-            </div>
-            <div className="mt-5">
-              <Footer />
-            </div>
-          </Content>
-        </main>
+              <div className="mt-5">
+                <Footer />
+              </div>
+            </Content>
+          </main>
         </div>
-
       </div>
     );
   }

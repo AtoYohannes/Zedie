@@ -91,7 +91,6 @@ class Books extends Component {
       <div className="booksContainer">
         <Row>
           <Col md={6} sm={12} xs={12}>
-            {/* <h1 className="mt-4 mb-3 text-primary">መፅሃፍት</h1> */}
             <Translate
               content="books"
               component="h1"
