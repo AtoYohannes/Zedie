@@ -32,6 +32,9 @@ const AddBooks = React.lazy(() => import("./Pages/Books/components/AddBooks"));
 const AddWritingChallenge = React.lazy(() =>
   import("./Pages/WritingChallenge/components/AddWritingChallenge")
 );
+const WritingChallengeQuestions = React.lazy(() =>
+  import("./Pages/WritingChallenge/components/WritingChallenges")
+);
 const QuizCategoriesList = React.lazy(() => import("./Pages/Quiz/index"));
 const AddQuiz = React.lazy(() => import("./Pages/Quiz/components/AddQuiz"));
 const LevelsDisplay = React.lazy(() =>
@@ -90,7 +93,7 @@ function App() {
               <Route exact path={routes.aboutUs} component={AboutUs} />
               <Route
                 exact
-                path={routes.cinemaSchedules}
+                path={routes.writingChallenge}
                 component={WritingChallenge}
               />
               <Route exact path={routes.addNews} component={AddNews} />
@@ -113,6 +116,11 @@ function App() {
               <Route exact path={routes.quizes} component={Quizes} />
               <Route exact path={routes.levels} component={LevelsDisplay} />
               <Route exact path={routes.addQuiz} component={AddQuiz} />
+              <Route
+                exact
+                path={routes.writingChallengeQuestions}
+                component={WritingChallengeQuestions}
+              />
             </React.Suspense>
           </MainLayout>
         </React.Fragment>

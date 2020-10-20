@@ -21,25 +21,28 @@ class addWritingChallenge extends Component {
       keyword: "",
       level: "",
       description: "",
+      timestamp: Date.now(),
     };
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { keyword, level, description } = this.state;
+    const { keyword, level, description, timestamp } = this.state;
     this.ref
       .add({
         keyword,
         level,
         description,
+        timestamp,
       })
       .then((docRef) => {
         this.setState({
           keyword: "",
           level: "",
           description: "",
+          timestamp: Date.now(),
         });
-        this.props.history.push(routes.cinemaSchedules);
+        this.props.history.push(routes.writingChallenge);
       })
       .catch((error) => {
         console.error("Error adding document: ", error);

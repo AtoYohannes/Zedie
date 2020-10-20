@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import Slider from "react-animated-slider";
-import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardImg,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import { Row, Col, Card, CardHeader, CardImg } from "reactstrap";
 import firebase from "../../Config/Firebase";
 import Translate from "react-translate-component";
 import { entertaiment04 } from "../../Assets/images";
+import { Link } from "react-router-dom";
+import routes from "../../Config/routes";
 
 class CinemaSchedule extends Component {
   constructor(props) {
@@ -69,17 +63,69 @@ class CinemaSchedule extends Component {
         />
         <div className="moviesContainer">
           <Row>
-            {this.state.challenges.map((movie, index) => (
-              <Col md={3} sm={12} xs={12} key={index}>
+            {/* {this.state.challenges.map((movie, index) => ( */}
+            <Col md={6} sm={12} xs={12}>
+              <Link
+                to={{
+                  pathname: routes.writingChallengeQuestions,
+                  state: {
+                    level: "Beginner",
+                  },
+                }}
+              >
                 <Card className="border-0 movieListContainer zoom mb-3">
-                  <CardHeader>{movie.keyword}</CardHeader>
+                  <CardHeader>Beginner</CardHeader>
                   <CardImg src={entertaiment04} />
-                  <CardBody>
-                    <CardTitle>{movie.keyword}</CardTitle>
-                  </CardBody>
                 </Card>
-              </Col>
-            ))}
+              </Link>
+            </Col>
+
+            <Col md={6} sm={12} xs={12}>
+              <Link
+                to={{
+                  pathname: routes.writingChallengeQuestions,
+                  state: {
+                    level: "Intermediate",
+                  },
+                }}
+              >
+                <Card className="border-0 movieListContainer zoom mb-3">
+                  <CardHeader>Intermediate</CardHeader>
+                  <CardImg src={entertaiment04} />
+                </Card>
+              </Link>
+            </Col>
+            <Col md={6} sm={12} xs={12}>
+              <Link
+                to={{
+                  pathname: routes.writingChallengeQuestions,
+                  state: {
+                    level: "Advanced",
+                  },
+                }}
+              >
+                <Card className="border-0 movieListContainer zoom mb-3">
+                  <CardHeader>Advanced</CardHeader>
+                  <CardImg src={entertaiment04} />
+                </Card>
+              </Link>
+            </Col>
+            <Col md={6} sm={12} xs={12}>
+              <Link
+                to={{
+                  pathname: routes.writingChallengeQuestions,
+                  state: {
+                    level: "Expert",
+                  },
+                }}
+              >
+                <Card className="border-0 movieListContainer zoom mb-3">
+                  <CardHeader>Expert</CardHeader>
+                  <CardImg src={entertaiment04} />
+                </Card>
+              </Link>
+            </Col>
+            {/* ))} */}
           </Row>
         </div>
       </div>

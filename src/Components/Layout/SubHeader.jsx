@@ -64,7 +64,7 @@ class SubHeader extends Component {
                 </Link>
               </Col>
               <Col className="mb-1" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.cinemaSchedules }}>
+                <Link to={{ pathname: routes.writingChallenge }}>
                   <Button outline size="lg" color="light">
                     <MdTv /> Cinema
                   </Button>
@@ -96,7 +96,7 @@ class SubHeader extends Component {
               </Link>
             </Col>
             <Col className="mb-1" md={3} sm={6} xs={6}>
-              <Link to={{ pathname: routes.cinemaSchedules }}>
+              <Link to={{ pathname: routes.writingChallenge }}>
                 <Button block outline size="sm" color="light">
                   <MdTv /> Cinema
                 </Button>

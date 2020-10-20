@@ -96,6 +96,12 @@ class Header extends React.Component {
               <NavLink>
                 {localStorage.getItem("usersData") ? (
                   <>
+                    <Link to={{ pathname: routes.writingChallenge }}>
+                      <Button outline size="sm" color="dark" className="mr-2">
+                        <MdWallpaper />
+                        <Translate content="quizCategories" />
+                      </Button>
+                    </Link>
                     <Link to={{ pathname: routes.quizCategories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
@@ -130,6 +136,12 @@ class Header extends React.Component {
                   </>
                 ) : (
                   <>
+                    <Link to={{ pathname: routes.writingChallenge }}>
+                      <Button outline size="sm" color="dark" className="mr-2">
+                        <MdWallpaper />
+                        <Translate content="quizCategories" />
+                      </Button>
+                    </Link>
                     <Link to={{ pathname: routes.quizCategories }}>
                       <Button outline size="sm" color="dark" className="mr-2">
                         <MdWallpaper />
