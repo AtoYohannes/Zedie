@@ -16,6 +16,7 @@
     justify-content: flex-end;
     height: 100%;
     color: #fff;
+    font-size: 19px;
   }
   .books {
     height: 200px;
@@ -25,13 +26,13 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      font-size: 17px;
     }
   }
 }
 
 .topBooksContainer {
-  margin: 0 auto;
-  width: 90%;
+  margin: 10px;
   .bookOverlay {
     text-shadow: -1px -1px 1px #000;
     align-content: center;
@@ -44,6 +45,8 @@
     height: 100%;
     color: #fff;
     overflow: hidden;
+    font-size: 19px;
+
     .bookOverlayAuthor {
       font-size: 15px;
     }
@@ -51,6 +54,8 @@
   .books {
     height: 240px;
     object-fit: cover;
+    box-shadow: 1px 10px 20px $dark;
+
     img {
       height: 100%;
       width: 100%;

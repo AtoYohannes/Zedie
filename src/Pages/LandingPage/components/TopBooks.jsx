@@ -48,7 +48,7 @@ class TopBooks extends Component {
       <div className="topBooksContainer">
         <Row>
           {this.state.books.reverse().map((book, index) => (
-            <Col md={6} sm={6} xs={12} key={index}>
+            <Col md={5} sm={6} xs={12} key={index}>
               <a target="_blank" rel="noopener noreferrer" href={book.bookURL}>
                 <Card className="mb-3 zoom books">
                   <CardImg src={book.imageURL} />

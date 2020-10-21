@@ -94,7 +94,7 @@ class Books extends Component {
             <Translate
               content="books"
               component="h1"
-              className="mt-4 mb-3 text-primary"
+              className="mt-4 divider mb-3 bg-none text-light"
             />
           </Col>
           <Col md={6} sm={12} xs={12}>

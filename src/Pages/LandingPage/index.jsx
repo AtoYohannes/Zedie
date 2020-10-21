@@ -13,15 +13,20 @@ const LandingPage = () => {
       <Translate
         content="CinemaS"
         component="h3"
-        className="divider bg-light mt-3 mb-3  text-primary text-uppercase"
+        className="divider bg-info p-2 m-3 text-uppercase"
       />
-      {/* <WordsShuffle /> */}
+      <WordsShuffle />
+      <Translate
+        content="CinemaS"
+        component="h3"
+        className="divider bg-success p-2 m-3 text-uppercase"
+      />
       <TopChallenges />
 
       <Translate
         content="books"
         component="h3"
-        className="divider bg-light mt-3 mb-3  text-primary text-uppercase"
+        className="divider bg-danger p-2 m-3 text-uppercase"
       />
       <TopBooks />
       <SignInLand />

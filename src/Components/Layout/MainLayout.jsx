@@ -10,12 +10,14 @@ class MainLayout extends React.Component {
     super(props);
     this.myRef = React.createRef();
     this.state = {
+      isMobile: false,
       scrollTop: 0,
       scrolled: false,
       drawerOpen: false,
       scrolledSignUp: false,
       type: "",
     };
+    this.updatePredicate = this.updatePredicate.bind(this);
   }
 
   drawerToggleClickHandler = (type) => {
@@ -29,6 +31,16 @@ class MainLayout extends React.Component {
       drawerOpen: false,
     });
   };
+  updatePredicate() {
+    this.setState({ isMobile: window.innerWidth > 600 });
+  }
+  componentDidMount() {
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
 
   onScroll = () => {
     const scrollTop = this.myRef.current.scrollTop;
@@ -55,13 +67,18 @@ class MainLayout extends React.Component {
 
   render() {
     const { children } = this.props;
+    const isMobile = this.state.isMobile;
     let backdrop;
     if (this.state.drawerOpen) {
       backdrop = <BackDrop close={this.backdropClickHandler} />;
     }
+    let className = "app-container bg-light";
+    if (isMobile) {
+      className = "app-container-mobile";
+    }
     return (
       <div
-        className="app-container"
+        className={className}
         style={{
           height: "100vh",
           overflow: "scroll",
@@ -80,8 +97,8 @@ class MainLayout extends React.Component {
             </div>
           </ModalBody>
         </Modal>
-        <div className="bodyContainer">
-          <main className="cr-app">
+        <div className="cr-app">
+          <main className={className}>
             <SlidingDrawer
               show={this.state.drawerOpen}
               type={this.state.type}
