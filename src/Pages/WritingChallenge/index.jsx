@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Slider from "react-animated-slider";
-import { Row, Col, Card, CardHeader, CardImg } from "reactstrap";
+import { Row, Col, Card, CardBody, CardImg } from "reactstrap";
 import firebase from "../../Config/Firebase";
 import Translate from "react-translate-component";
 import { entertaiment04 } from "../../Assets/images";
+import Beginner from "../../Assets/Levels/Beginner.jpg";
+import Intermediate from "../../Assets/Levels/Intermediate.png";
 import { Link } from "react-router-dom";
 import routes from "../../Config/routes";
 
@@ -40,6 +42,11 @@ class CinemaSchedule extends Component {
   render() {
     return (
       <div>
+        <Translate
+          content="books"
+          component="h3"
+          className="divider p-2 m-3 text-uppercase"
+        />
         <Slider autoplay={3000} className="slider-wrapper">
           {this.state.challenges.map((movie, index) => (
             <div
@@ -57,10 +64,11 @@ class CinemaSchedule extends Component {
           ))}
         </Slider>
         <Translate
-          content="up"
+          content="books"
           component="h3"
-          className="divider mt-3 mb-3 text-primary text-uppercase"
+          className="divider p-2 m-3 text-uppercase"
         />
+
         <div className="moviesContainer">
           <Row>
             {/* {this.state.challenges.map((movie, index) => ( */}
@@ -73,9 +81,9 @@ class CinemaSchedule extends Component {
                   },
                 }}
               >
-                <Card className="border-0 movieListContainer zoom mb-3">
-                  <CardHeader>Beginner</CardHeader>
-                  <CardImg src={entertaiment04} />
+                <Card className="border-0 moviesContainer zoom mb-3">
+                  <CardBody>Beginner</CardBody>
+                  <CardImg src={Beginner} />
                 </Card>
               </Link>
             </Col>
@@ -89,9 +97,9 @@ class CinemaSchedule extends Component {
                   },
                 }}
               >
-                <Card className="border-0 movieListContainer zoom mb-3">
-                  <CardHeader>Intermediate</CardHeader>
-                  <CardImg src={entertaiment04} />
+                <Card className="border-0 moviesContainer zoom mb-3">
+                  <CardBody>Intermediate</CardBody>
+                  <CardImg src={Intermediate} />
                 </Card>
               </Link>
             </Col>
@@ -104,8 +112,8 @@ class CinemaSchedule extends Component {
                   },
                 }}
               >
-                <Card className="border-0 movieListContainer zoom mb-3">
-                  <CardHeader>Advanced</CardHeader>
+                <Card className="border-0 moviesContainer zoom mb-3">
+                  <CardBody>Advanced</CardBody>
                   <CardImg src={entertaiment04} />
                 </Card>
               </Link>
@@ -119,8 +127,8 @@ class CinemaSchedule extends Component {
                   },
                 }}
               >
-                <Card className="border-0 movieListContainer zoom mb-3">
-                  <CardHeader>Expert</CardHeader>
+                <Card className="border-0 moviesContainer zoom mb-3">
+                  <CardBody>Expert</CardBody>
                   <CardImg src={entertaiment04} />
                 </Card>
               </Link>

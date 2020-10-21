@@ -1,12 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardHeader, CardImg, Col, Row } from "reactstrap";
-import { entertaiment01 } from "../../Assets/images/index";
+import Translate from "react-translate-component";
+import { Card, CardBody, CardImg, Col, Row } from "reactstrap";
 import routes from "../../Config/routes";
+import technology from "../../Assets/Gifs/technology.gif";
+import maths from "../../Assets/Gifs/Maths.gif";
+import english from "../../Assets/Gifs/English.gif";
+import amharic from "../../Assets/Gifs/Amharic.jpg";
+import algorithms from "../../Assets/Gifs/Algorithms.gif";
 
 const QuizesCategories = () => {
   return (
-    <div className="p-5">
+    <div className="p-1 m-3">
+      <CardBody className="bg-none">
+        <Translate
+          content="books"
+          component="h3"
+          className="divider p-2 m-3 text-uppercase"
+        />
+      </CardBody>
       <Row>
         <Col md={6} sm={12} xs={12}>
           <Link
@@ -17,9 +29,9 @@ const QuizesCategories = () => {
               },
             }}
           >
-            <Card className="border-0 zoom mb-5">
-              <CardImg src={entertaiment01} />
-              <CardHeader>Technology</CardHeader>
+            <Card className="border-0 moviesContainer zoom mb-5">
+              <CardImg src={technology} />
+              <CardBody>Technology</CardBody>
             </Card>
           </Link>
         </Col>
@@ -28,13 +40,13 @@ const QuizesCategories = () => {
             to={{
               pathname: routes.levels,
               state: {
-                category: "Culture",
+                category: "Maths",
               },
             }}
           >
-            <Card className="border-0 zoom mb-5">
-              <CardImg src={entertaiment01} />
-              <CardHeader>Culture</CardHeader>
+            <Card className="border-0 moviesContainer zoom mb-5">
+              <CardImg src={maths} />
+              <CardBody>Maths</CardBody>
             </Card>
           </Link>
         </Col>
@@ -43,13 +55,13 @@ const QuizesCategories = () => {
             to={{
               pathname: routes.levels,
               state: {
-                category: "Something",
+                category: "English",
               },
             }}
           >
-            <Card className="border-0 zoom mb-5">
-              <CardImg src={entertaiment01} />
-              <CardHeader>Something</CardHeader>
+            <Card className="border-0 moviesContainer zoom mb-5">
+              <CardImg src={english} />
+              <CardBody>English</CardBody>
             </Card>
           </Link>
         </Col>
@@ -58,13 +70,28 @@ const QuizesCategories = () => {
             to={{
               pathname: routes.levels,
               state: {
-                category: "General Knowledge",
+                category: "Amharic",
               },
             }}
           >
-            <Card className="border-0 zoom mb-5">
-              <CardImg src={entertaiment01} />
-              <CardHeader>General Knowledge</CardHeader>
+            <Card className="border-0 moviesContainer zoom mb-5">
+              <CardImg src={amharic} />
+              <CardBody>Amharic</CardBody>
+            </Card>
+          </Link>
+        </Col>
+        <Col md={6} sm={12} xs={12}>
+          <Link
+            to={{
+              pathname: routes.levels,
+              state: {
+                category: "Algorithms",
+              },
+            }}
+          >
+            <Card className="border-0 moviesContainer zoom mb-5">
+              <CardImg src={algorithms} />
+              <CardBody>Algorithms</CardBody>
             </Card>
           </Link>
         </Col>

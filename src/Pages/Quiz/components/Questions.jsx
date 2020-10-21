@@ -8,6 +8,7 @@ import {
   CardFooter,
   Button,
   CardImg,
+  Row,
 } from "reactstrap";
 import Swal from "sweetalert2";
 import firebase from "../../../Config/Firebase";
@@ -168,13 +169,26 @@ class Questions extends React.Component {
     const { selectedQuize: quiz, quizes, score } = this.state;
     const quizNumber = quizes.indexOf(quiz) + 1;
     return (
-      <div>
+      <div className="ml-5 mr-5 mt-2">
         {quiz ? (
           <>
-            <h3>{`${quizNumber} of ${quizes.length}`}</h3>
+            <CardHeader align="center" className="cardHeader divider">
+              <h3>{`${quizNumber} of ${quizes.length}`}</h3>
+            </CardHeader>
             <Col sm={12} xs={12} md={12}>
-              <Card className="border-0 quizes mb-5 mt-3">
-                <CardHeader>{quiz.category}</CardHeader>
+              <Card className="border-0 quizes mb-5 ">
+                <CardHeader>
+                  <Row className="ml-3">
+                    <div>Category :</div>{" "}
+                    <div className="text-primary">{quiz.category}</div>
+                  </Row>
+                </CardHeader>
+                <CardHeader>
+                  <Row className="ml-3">
+                    <div>LEVEL :</div>{" "}
+                    <div className="text-primary">{quiz.level}</div>
+                  </Row>
+                </CardHeader>
                 <CardImg src={quiz.imageURLs} />
                 <CardBody align="center">
                   <CardTitle>

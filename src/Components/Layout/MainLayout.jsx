@@ -97,8 +97,8 @@ class MainLayout extends React.Component {
             </div>
           </ModalBody>
         </Modal>
-        <div className="cr-app">
-          <main className={className}>
+        <div>
+          <main className="cr-app">
             <SlidingDrawer
               show={this.state.drawerOpen}
               type={this.state.type}

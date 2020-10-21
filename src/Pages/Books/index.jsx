@@ -7,7 +7,6 @@ import {
   CardImgOverlay,
   CardText,
   CardSubtitle,
-  CardHeader,
   CardBody,
 } from "reactstrap";
 import firebase from "../../Config/Firebase";
@@ -116,7 +115,7 @@ class Books extends Component {
                         <Card className="mb-3 zoom searchedBooks">
                           <CardImg src={book.imageURL} />{" "}
                           <CardBody>
-                            <CardHeader>{book.label}</CardHeader>
+                            <CardBody>{book.label}</CardBody>
                           </CardBody>
                         </Card>
                       </a>

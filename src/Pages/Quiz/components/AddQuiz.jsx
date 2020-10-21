@@ -137,11 +137,12 @@ class AddQuiz extends Component {
                           name="category"
                           type="select"
                         >
+                          <option>Select From the ones Below</option>
                           <option>Technology</option>
-                          <option>Places</option>
-                          <option>Culture</option>
-                          <option>Something</option>
-                          <option>Gender</option>
+                          <option>Maths</option>
+                          <option>English</option>
+                          <option>Amharic</option>
+                          <option>Algorithms</option>
                         </Input>
                       </FormGroup>
                     </Col>
@@ -155,11 +156,11 @@ class AddQuiz extends Component {
                           name="level"
                           type="select"
                         >
+                          <option>Select From the ones Below</option>
                           <option>Beginner</option>
                           <option>Intermediate</option>
                           <option>Advanced</option>
                           <option>Extreme</option>
-                          <option>WHAAAT? </option>
                         </Input>
                       </FormGroup>
                     </Col>

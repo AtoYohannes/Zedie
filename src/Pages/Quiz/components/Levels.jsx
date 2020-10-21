@@ -1,8 +1,9 @@
 import React from "react";
 import { entertaiment04 } from "../../../Assets/images/index";
-import { Card, CardHeader, CardImg, Col, Row } from "reactstrap";
+import { Card, CardBody, CardImg, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import routes from "../../../Config/routes";
+import Translate from "react-translate-component";
 
 class Levels extends React.Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class Levels extends React.Component {
   }
   render() {
     return (
-      <div className="p-5 levelContainers">
+      <div className="p-5">
+        <Translate
+          content="books"
+          component="h3"
+          className="divider p-2 m-3 text-uppercase"
+        />
         <Row>
           <Col md={6} sm={12} xs={12}>
             <Link
@@ -26,9 +32,9 @@ class Levels extends React.Component {
                 },
               }}
             >
-              <Card className="border-0 zoom mb-5">
+              <Card className="moviesContainer zoom mb-5">
                 <CardImg src={entertaiment04} />
-                <CardHeader>Beginner</CardHeader>
+                <CardBody>Beginner</CardBody>
               </Card>
             </Link>
           </Col>
@@ -42,9 +48,9 @@ class Levels extends React.Component {
                 },
               }}
             >
-              <Card className="border-0 zoom mb-5">
+              <Card className="moviesContainer zoom mb-5">
                 <CardImg src={entertaiment04} />
-                <CardHeader>Intermediate</CardHeader>
+                <CardBody>Intermediate</CardBody>
               </Card>
             </Link>
           </Col>
@@ -57,9 +63,9 @@ class Levels extends React.Component {
                 },
               }}
             >
-              <Card className="border-0 zoom mb-5">
+              <Card className="moviesContainer zoom mb-5">
                 <CardImg src={entertaiment04} />
-                <CardHeader>Advanced</CardHeader>
+                <CardBody>Advanced</CardBody>
               </Card>
             </Link>
           </Col>
@@ -73,9 +79,9 @@ class Levels extends React.Component {
                 },
               }}
             >
-              <Card className="border-0 zoom mb-5">
+              <Card className="border-0 moviesContainer zoom mb-5">
                 <CardImg src={entertaiment04} />
-                <CardHeader>Expert</CardHeader>
+                <CardBody>Expert</CardBody>
               </Card>
             </Link>
           </Col>

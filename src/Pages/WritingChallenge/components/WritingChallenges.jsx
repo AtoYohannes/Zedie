@@ -1,5 +1,12 @@
 import React from "react";
-import { Card, Input } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Form,
+  Input,
+} from "reactstrap";
 import Swal from "sweetalert2";
 import firebase from "../../../Config/Firebase";
 
@@ -80,23 +87,40 @@ class WritingChallenges extends React.Component {
     const { currentChallenge: challenge, challenges, score } = this.state;
     const challengeNumber = challenges.indexOf(challenge) + 1;
     return (
-      <div>
+      <div className="m-5">
         {challenge ? (
           <>
-            <h3>{`${challengeNumber} of ${challenges.length}`}</h3>
+            <CardHeader className="divider cardHeader" align="center">
+              <h3>{`${challengeNumber} of ${challenges.length}`}</h3>
+            </CardHeader>
             <Card>
               <div>
-                <h1>{challenge.keyword}</h1>
-                <h6>{challenge.description}</h6>
+                <CardHeader align="center" className="cardHeader pt-5 pb-5">
+                  <small className="text-primary">keyword</small>
+                  <h2>{challenge.keyword}</h2>
+                </CardHeader>
+                <CardBody align="center">
+                  <small className="text-primary">Description</small>
+
+                  <h6>{challenge.description}</h6>
+                </CardBody>
               </div>
-              <form onSubmit={this.handleSubmit}>
-                <Input
-                  placeholder="Type Your Replicate Here"
-                  value={this.state.userAnswer}
-                  onChange={this.handleChange}
-                ></Input>
-                <input type="submit" value="Submit" />
-              </form>
+              <CardFooter>
+                <Form onSubmit={this.handleSubmit}>
+                  <Input
+                    placeholder="Type Your Replicate Here"
+                    size="sm"
+                    value={this.state.userAnswer}
+                    onChange={this.handleChange}
+                  ></Input>
+                  <Input
+                    className="bg-primary text-light"
+                    color="primary"
+                    type="submit"
+                    value="Submit"
+                  />
+                </Form>
+              </CardFooter>
             </Card>
           </>
         ) : (
