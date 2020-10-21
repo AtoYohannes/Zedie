@@ -44,7 +44,7 @@ class CinemaSchedule extends Component {
       <div>
         <Translate
           content="books"
-          component="h3 "
+          component="h3"
           className="divider p-2 m-3 text-uppercase"
         />
         <Slider autoplay={3000} className="slider-wrapper">
