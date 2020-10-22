@@ -9,10 +9,11 @@ import {
   ListGroup,
   ListGroupItem,
   Button,
+  Input,
 } from "reactstrap";
 import bn from "../../utils/bemnames";
 import routes from "../../Config/routes";
-import { MdReorder, MdExitToApp, MdBook, MdWallpaper } from "react-icons/md";
+import { MdReorder, MdExitToApp } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "../../Assets/ZEDIE.svg";
 import Avatar from "../Avatar";
@@ -96,32 +97,6 @@ class Header extends React.Component {
               <NavLink>
                 {localStorage.getItem("usersData") ? (
                   <>
-                    <Link to={{ pathname: routes.writingChallenge }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdWallpaper />
-                        <Translate
-                          className="translate"
-                          content="quizCategories"
-                        />
-                      </Button>
-                    </Link>
-                    <Link to={{ pathname: routes.quizCategories }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdWallpaper />
-                        <Translate
-                          className="translate"
-                          content="quizCategories"
-                        />
-                      </Button>
-                    </Link>
-
-                    <Link to={{ pathname: routes.books }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdBook />
-                        <Translate className="translate" content="books" />
-                      </Button>
-                    </Link>
-
                     <select
                       value={this.state.lang}
                       onChange={this.onLangChange}
@@ -142,42 +117,20 @@ class Header extends React.Component {
                   </>
                 ) : (
                   <>
-                    <Link to={{ pathname: routes.writingChallenge }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdWallpaper />
-                        <Translate
-                          className="translate"
-                          content="quizCategories"
-                        />
-                      </Button>
-                    </Link>
-                    <Link to={{ pathname: routes.quizCategories }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdWallpaper />
-                        <Translate
-                          className="translate"
-                          content="quizCategories"
-                        />
-                      </Button>
-                    </Link>
-
-                    <Link to={{ pathname: routes.books }}>
-                      <Button outline size="sm" color="dark" className="mr-2">
-                        <MdBook />
-                        <Translate className="translate" content="books" />
-                      </Button>
-                    </Link>
-                    <select
+                    <Input
+                      type="select"
+                      size="sm"
                       value={this.state.lang}
                       onChange={this.onLangChange}
                     >
                       <option value="en">EN</option>
                       <option value="et">ET</option>
-                    </select>
+                    </Input>
 
                     <Button
                       size="sm"
                       outline
+                      className="ml-3"
                       onClick={() => this.props.toggle("signIn")}
                       color="dark"
                     >

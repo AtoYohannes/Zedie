@@ -1,7 +1,27 @@
 import React, { Component } from "react";
 import Slider from "react-animated-slider";
+import {
+  coverimage1,
+  coverimage2,
+  coverimage3,
+} from "../../../Assets/coverImages";
 import { entertaiment20 } from "../../../Assets/images";
 import firebase from "../../../Config/Firebase";
+
+const backgroundImages = [
+  {
+    backgroundimage: coverimage1,
+  },
+  {
+    backgroundimage: coverimage2,
+  },
+  {
+    backgroundimage: coverimage3,
+  },
+  {
+    backgroundimage: entertaiment20,
+  },
+];
 
 class WordsShuffle extends Component {
   constructor(props) {
@@ -37,19 +57,14 @@ class WordsShuffle extends Component {
     return (
       <div>
         <Slider autoplay={3000} className="slider-wrapper">
-          {this.state.challenges.map((movie, index) => (
+          {backgroundImages.map((movie, index) => (
             <div
               key={index}
               className="slider-content"
               style={{
-                background: `url('${entertaiment20}') no-repeat center center`,
+                background: `url('${movie.backgroundimage}') no-repeat center center`,
               }}
-            >
-              <div className="inner">
-                <h1>{movie.keyword}</h1>
-                <p>{movie.description}</p>
-              </div>
-            </div>
+            ></div>
           ))}
         </Slider>
       </div>

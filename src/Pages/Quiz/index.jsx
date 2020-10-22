@@ -31,7 +31,9 @@ const QuizesCategories = () => {
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={technology} />
-              <CardBody>Technology</CardBody>
+              <CardBody align="center">
+                <h6>Technology</h6>
+              </CardBody>
             </Card>
           </Link>
         </Col>
@@ -46,7 +48,9 @@ const QuizesCategories = () => {
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={maths} />
-              <CardBody>Maths</CardBody>
+              <CardBody align="center">
+                <h6>Maths</h6>
+              </CardBody>
             </Card>
           </Link>
         </Col>
@@ -61,7 +65,9 @@ const QuizesCategories = () => {
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={english} />
-              <CardBody>English</CardBody>
+              <CardBody align="center">
+                <h6>English</h6>
+              </CardBody>
             </Card>
           </Link>
         </Col>
@@ -76,7 +82,9 @@ const QuizesCategories = () => {
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={amharic} />
-              <CardBody>Amharic</CardBody>
+              <CardBody align="center">
+                <h6>Amharic</h6>
+              </CardBody>
             </Card>
           </Link>
         </Col>
@@ -91,7 +99,9 @@ const QuizesCategories = () => {
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={algorithms} />
-              <CardBody>Algorithms</CardBody>
+              <CardBody align="center">
+                <h6>Algorithms</h6>
+              </CardBody>
             </Card>
           </Link>
         </Col>

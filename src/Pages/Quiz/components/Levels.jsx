@@ -1,9 +1,12 @@
 import React from "react";
-import { entertaiment04 } from "../../../Assets/images/index";
 import { Card, CardBody, CardImg, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import routes from "../../../Config/routes";
 import Translate from "react-translate-component";
+import Beginner from "../../../Assets/Levels/Beginner.jpg";
+import Intermediate from "../../../Assets/Levels/Intermediate.png";
+import Advanced from "../../../Assets/Levels/Advanced.jpg";
+import Expert from "../../../Assets/Levels/Expert.png";
 
 class Levels extends React.Component {
   constructor(props) {
@@ -33,8 +36,10 @@ class Levels extends React.Component {
               }}
             >
               <Card className="moviesContainer zoom mb-5">
-                <CardImg src={entertaiment04} />
-                <CardBody>Beginner</CardBody>
+                <CardImg src={Beginner} />
+                <CardBody align="center">
+                  <h6>Beginner</h6>
+                </CardBody>
               </Card>
             </Link>
           </Col>
@@ -44,13 +49,15 @@ class Levels extends React.Component {
                 pathname: routes.quizes,
                 state: {
                   level: "Intermediate",
-                  // category: { category },
+                  category: `${this.props.location.state.category}`,
                 },
               }}
             >
               <Card className="moviesContainer zoom mb-5">
-                <CardImg src={entertaiment04} />
-                <CardBody>Intermediate</CardBody>
+                <CardImg src={Intermediate} />
+                <CardBody align="center">
+                  <h6>Intermediate</h6>
+                </CardBody>
               </Card>
             </Link>
           </Col>
@@ -60,12 +67,15 @@ class Levels extends React.Component {
                 pathname: routes.quizes,
                 state: {
                   level: "Advanced",
+                  category: `${this.props.location.state.category}`,
                 },
               }}
             >
               <Card className="moviesContainer zoom mb-5">
-                <CardImg src={entertaiment04} />
-                <CardBody>Advanced</CardBody>
+                <CardImg src={Advanced} />
+                <CardBody align="center">
+                  <h6>Advanced</h6>
+                </CardBody>
               </Card>
             </Link>
           </Col>
@@ -75,13 +85,15 @@ class Levels extends React.Component {
                 pathname: routes.quizes,
                 state: {
                   level: "Expert",
-                  // category: { category },
+                  category: `${this.props.location.state.category}`,
                 },
               }}
             >
               <Card className="border-0 moviesContainer zoom mb-5">
-                <CardImg src={entertaiment04} />
-                <CardBody>Expert</CardBody>
+                <CardImg src={Expert} />
+                <CardBody align="center">
+                  <h6>Expert</h6>
+                </CardBody>
               </Card>
             </Link>
           </Col>

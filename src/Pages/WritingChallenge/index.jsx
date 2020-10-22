@@ -6,6 +6,9 @@ import Translate from "react-translate-component";
 import { entertaiment04 } from "../../Assets/images";
 import Beginner from "../../Assets/Levels/Beginner.jpg";
 import Intermediate from "../../Assets/Levels/Intermediate.png";
+import Advanced from "../../Assets/Levels/Advanced.jpg";
+import Expert from "../../Assets/Levels/Expert.png";
+
 import { Link } from "react-router-dom";
 import routes from "../../Config/routes";
 
@@ -82,7 +85,9 @@ class CinemaSchedule extends Component {
                 }}
               >
                 <Card className="border-0 moviesContainer zoom mb-3">
-                  <CardBody>Beginner</CardBody>
+                  <CardBody align="center">
+                    <h6>Beginner</h6>
+                  </CardBody>
                   <CardImg src={Beginner} />
                 </Card>
               </Link>
@@ -98,7 +103,9 @@ class CinemaSchedule extends Component {
                 }}
               >
                 <Card className="border-0 moviesContainer zoom mb-3">
-                  <CardBody>Intermediate</CardBody>
+                  <CardBody align="center">
+                    <h6>Intermediate</h6>
+                  </CardBody>
                   <CardImg src={Intermediate} />
                 </Card>
               </Link>
@@ -113,8 +120,10 @@ class CinemaSchedule extends Component {
                 }}
               >
                 <Card className="border-0 moviesContainer zoom mb-3">
-                  <CardBody>Advanced</CardBody>
-                  <CardImg src={entertaiment04} />
+                  <CardBody align="center">
+                    <h6>Advanced</h6>
+                  </CardBody>
+                  <CardImg src={Advanced} />
                 </Card>
               </Link>
             </Col>
@@ -128,8 +137,10 @@ class CinemaSchedule extends Component {
                 }}
               >
                 <Card className="border-0 moviesContainer zoom mb-3">
-                  <CardBody>Expert</CardBody>
-                  <CardImg src={entertaiment04} />
+                  <CardBody align="center">
+                    <h6>Expert</h6>
+                  </CardBody>
+                  <CardImg src={Expert} />
                 </Card>
               </Link>
             </Col>

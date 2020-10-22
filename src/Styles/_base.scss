@@ -52,8 +52,8 @@ button,
       font-size: 8px;
     }
     button {
-      padding-left: 30px;
-      padding-right: 30px;
+      // padding-left: 30px;
+      // padding-right: 30px;
       padding-top: 5px;
       padding-bottom: 5px;
       transition: 0.5s;
@@ -137,8 +137,8 @@ button,
 }
 
 .topChallenges {
-  min-height: 400px;
-  width: 100%;
+  min-height: 415px;
+  background-image: url("../Assets/Background2.jpg");
 }
 .levelContainers {
   box-shadow: 1px 20px 40px $dark;
@@ -147,4 +147,7 @@ button,
 .cardHeader {
   background: none;
   margin-right: 100px;
+}
+.subheaderHeader {
+  background: none;
 }

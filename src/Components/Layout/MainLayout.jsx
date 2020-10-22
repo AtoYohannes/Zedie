@@ -1,4 +1,4 @@
-import { Content, Footer, Header } from "./index";
+import { Content, Footer, Header, SubHeader } from "./index";
 import React from "react";
 import { BackDrop, SlidingDrawer } from "../Drawer";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
@@ -110,7 +110,7 @@ class MainLayout extends React.Component {
                 scrolled={this.state.scrolled}
               />
               <div>
-                {/* <SubHeader /> */}
+                <SubHeader />
                 <div className="cr-app-body">{children}</div>
               </div>
               <div className="mt-5">

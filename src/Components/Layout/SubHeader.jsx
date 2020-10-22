@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Card, Button, Row, Col } from "reactstrap";
-import { MdPhone, MdList, MdBook, MdTv } from "react-icons/md";
+import { MdPhone, MdList, MdBook, MdTv, MdWallpaper } from "react-icons/md";
 import { Link } from "react-router-dom";
 import routes from "../../Config/routes";
+// import { MdReorder, MdExitToApp, MdBook, MdWallpaper } from "react-icons/md";
+import Translate from "react-translate-component";
 
 class SubHeader extends Component {
   constructor(props) {
@@ -38,35 +40,31 @@ class SubHeader extends Component {
     const isMobile = this.state.isMobile;
 
     return (
-      <Card align="center" className="bg-primary">
+      <Card align="center" className="subheaderHeader">
         {isMobile ? (
           <div className="subHeaderContainer">
             <Row>
-              <Col className="mb-1" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.news }}>
-                  <Button outline size="lg" color="light">
-                    <MdList /> News
+              <Col className="mb-1" md={4} sm={12} xs={12}>
+                <Link to={{ pathname: routes.quizCategories }}>
+                  <Button block outline size="sm" color="dark" className="mr-2">
+                    <MdWallpaper />
+                    <Translate className="translate" content="quizCategories" />
                   </Button>
                 </Link>
               </Col>
-              <Col className="mb-1" md={3} sm={12} xs={12}>
+              <Col className="mb-1" md={4} sm={12} xs={12}>
                 <Link to={{ pathname: routes.books }}>
-                  <Button outline size="lg" color="light">
-                    <MdBook /> Books
+                  <Button block outline size="sm" color="dark" className="mr-2">
+                    <MdBook />
+                    <Translate className="translate" content="books" />
                   </Button>
                 </Link>
               </Col>
-              <Col className="mb-1" md={3} sm={12} xs={12}>
-                <Link to={{ pathname: routes.directories }}>
-                  <Button outline size="lg" color="light">
-                    <MdPhone /> Directories
-                  </Button>
-                </Link>
-              </Col>
-              <Col className="mb-1" md={3} sm={12} xs={12}>
+              <Col className="mb-1" md={4} sm={12} xs={12}>
                 <Link to={{ pathname: routes.writingChallenge }}>
-                  <Button outline size="lg" color="light">
-                    <MdTv /> Cinema
+                  <Button block outline size="sm" color="dark" className="mr-2">
+                    <MdWallpaper />
+                    <Translate className="translate" content="quizCategories" />
                   </Button>
                 </Link>
               </Col>
@@ -76,28 +74,28 @@ class SubHeader extends Component {
           <Row>
             <Col className="mb-1" md={3} sm={6} xs={6}>
               <Link to={{ pathname: routes.news }}>
-                <Button block outline size="sm" color="light">
+                <Button block outline size="sm">
                   <MdList /> News
                 </Button>
               </Link>
             </Col>
             <Col className="mb-1" md={3} sm={6} xs={6}>
               <Link to={{ pathname: routes.books }}>
-                <Button block outline size="sm" color="light">
+                <Button block outline size="sm">
                   <MdBook /> Books
                 </Button>
               </Link>
             </Col>
             <Col className="mb-1" md={3} sm={6} xs={6}>
               <Link to={{ pathname: routes.directories }}>
-                <Button block outline size="sm" color="light">
+                <Button block outline size="sm">
                   <MdPhone /> Directories
                 </Button>
               </Link>
             </Col>
             <Col className="mb-1" md={3} sm={6} xs={6}>
               <Link to={{ pathname: routes.writingChallenge }}>
-                <Button block outline size="sm" color="light">
+                <Button block outline size="sm">
                   <MdTv /> Cinema
                 </Button>
               </Link>

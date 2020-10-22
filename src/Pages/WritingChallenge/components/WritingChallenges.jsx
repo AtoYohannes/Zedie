@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -6,9 +7,12 @@ import {
   CardHeader,
   Form,
   Input,
+  Row,
+  Button,
 } from "reactstrap";
 import Swal from "sweetalert2";
 import firebase from "../../../Config/Firebase";
+import routes from "../../../Config/routes";
 
 class WritingChallenges extends React.Component {
   constructor(props) {
@@ -55,6 +59,16 @@ class WritingChallenges extends React.Component {
   componentDidMount() {
     this.getFilteredQuestions();
   }
+  SuccessMessage({ score, challenges }) {
+    Swal.fire({
+      icon: "success",
+      title: "Good job!",
+      text: `Your score is ${score}/${challenges.length}`,
+      timer: 2000,
+      showConfirmButton: false,
+    });
+    window.location.reload(false);
+  }
   handleChange(event) {
     this.setState({ userAnswer: event.target.value });
   }
@@ -68,7 +82,6 @@ class WritingChallenges extends React.Component {
         title: "Oops...",
         text: `Incorrect Answer`,
         timer: 2000,
-        timerProgressBar: true,
         showConfirmButton: false,
       });
       score = score - 1;
@@ -94,25 +107,28 @@ class WritingChallenges extends React.Component {
               <h3>{`${challengeNumber} of ${challenges.length}`}</h3>
             </CardHeader>
             <Card>
-              <div>
-                <CardHeader align="center" className="cardHeader pt-5 pb-5">
-                  <small className="text-primary">keyword</small>
-                  <h2>{challenge.keyword}</h2>
-                </CardHeader>
-                <CardBody align="center">
-                  <small className="text-primary">Description</small>
-
-                  <h6>{challenge.description}</h6>
-                </CardBody>
-              </div>
+              <CardHeader>
+                <Row className="ml-3">
+                  <div>Level :</div>{" "}
+                  <div className="text-primary">{challenge.level}</div>
+                </Row>
+              </CardHeader>
+              <CardHeader align="center" className="pt-5 pb-5">
+                <small className="text-primary">Keyword</small>
+                <h2>{challenge.keyword}</h2>
+              </CardHeader>
+              <CardBody align="center">
+                <small className="text-primary">Description</small>
+                <h6>{challenge.description}</h6>
+              </CardBody>
               <CardFooter>
                 <Form onSubmit={this.handleSubmit}>
                   <Input
-                    placeholder="Type Your Replicate Here"
+                    placeholder="Type Your Answer Here"
                     size="sm"
                     value={this.state.userAnswer}
                     onChange={this.handleChange}
-                  ></Input>
+                  />
                   <Input
                     className="bg-primary text-light"
                     color="primary"
@@ -125,7 +141,24 @@ class WritingChallenges extends React.Component {
           </>
         ) : (
           score !== "" && (
-            <h3>{`Your score is ${score}/${challenges.length}`}</h3>
+            <Card className="mt-5">
+              <CardHeader>Your Score</CardHeader>
+              <CardBody align="center">
+                <h3>
+                  Your score is{" "}
+                  <div className="text-primary">
+                    {score} / {challenges.length}
+                  </div>
+                </h3>
+              </CardBody>
+              <CardFooter align="center">
+                <Link to={{ pathname: routes.writingChallenge }}>
+                  <Button outline block>
+                    BACK TO HOME
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
           )
         )}
       </div>

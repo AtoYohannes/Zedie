@@ -22,14 +22,13 @@ const LandingPage = () => {
         className="divider  p-2 m-3 text-uppercase"
       />
       <TopChallenges />
-
+      <SignInLand />
       <Translate
         content="books"
         component="h3"
         className="divider p-2 m-3 text-uppercase"
       />
       <TopBooks />
-      <SignInLand />
     </div>
   );
 };

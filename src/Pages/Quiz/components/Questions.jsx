@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Col,
   Card,
@@ -12,6 +13,7 @@ import {
 } from "reactstrap";
 import Swal from "sweetalert2";
 import firebase from "../../../Config/Firebase";
+import routes from "../../../Config/routes";
 
 class Questions extends React.Component {
   constructor(props) {
@@ -204,7 +206,26 @@ class Questions extends React.Component {
             </Col>
           </>
         ) : (
-          score !== "" && <h3>{`Your score is ${score}/${quizes.length}`}</h3>
+          score !== "" && (
+            <Card className="mt-5">
+              <CardHeader>Your Score</CardHeader>
+              <CardBody align="center">
+                <h3>
+                  Your score is{" "}
+                  <div className="text-primary">
+                    {score} / {quizes.length}
+                  </div>
+                </h3>
+              </CardBody>
+              <CardFooter align="center">
+                <Link to={{ pathname: routes.quizCategories }}>
+                  <Button block outline>
+                    BACK TO HOME
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          )
         )}
       </div>
     );
