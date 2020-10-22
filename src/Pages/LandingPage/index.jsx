@@ -11,13 +11,13 @@ const LandingPage = () => {
   return (
     <div>
       <Translate
-        content="CinemaS"
+        content="wordChallenges"
         component="h3"
         className="divider p-2 m-3 text-uppercase"
       />
       <WordsShuffle />
       <Translate
-        content="CinemaS"
+        content="quizes"
         component="h3"
         className="divider  p-2 m-3 text-uppercase"
       />

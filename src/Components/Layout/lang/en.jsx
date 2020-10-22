@@ -1,8 +1,13 @@
 export default {
   cinema: "Cinema",
+  wordChallenges: "Spelling Challenges",
+  quizes: "Quizes",
   quizCategories: "Quizes",
+  categories: "Categories",
   books: "Books",
   news: "News",
+  level: "Levels",
+
   logout: "Logout",
   signin: "SignIn",
   CinemaS: "Cinema schedule",

@@ -20,7 +20,7 @@ class Levels extends React.Component {
     return (
       <div className="p-5">
         <Translate
-          content="books"
+          content="level"
           component="h3"
           className="divider p-2 m-3 text-uppercase"
         />

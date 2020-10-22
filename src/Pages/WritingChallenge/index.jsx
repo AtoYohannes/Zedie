@@ -46,7 +46,7 @@ class CinemaSchedule extends Component {
     return (
       <div>
         <Translate
-          content="books"
+          content="wordChallenges"
           component="h3"
           className="divider p-2 m-3 text-uppercase"
         />
@@ -67,7 +67,7 @@ class CinemaSchedule extends Component {
           ))}
         </Slider>
         <Translate
-          content="books"
+          content="level"
           component="h3"
           className="divider p-2 m-3 text-uppercase"
         />

@@ -14,7 +14,7 @@ const QuizesCategories = () => {
     <div className="p-1 m-3">
       <CardBody className="bg-none">
         <Translate
-          content="books"
+          content="quizes"
           component="h3"
           className="divider p-2 m-3 text-uppercase"
         />

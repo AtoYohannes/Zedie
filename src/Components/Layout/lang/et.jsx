@@ -1,8 +1,13 @@
 export default {
   cinema: "ሲኒማ",
+  wordChallenges: "የፊደል አጻጻፍ ጥያቄዎች",
+  quizes: "ጥያቄዎች",
   quizCategories: "ፈተና",
+  categories: "ምድቦች",
   books: "መጽሐፍት",
   news: "ዜና",
+  level: "ደረጃዎች",
+
   logout: "ውጣ",
   signin: "ግባ",
   CinemaS: "ሲኒማ የጊዜ ሰሌዳ",
