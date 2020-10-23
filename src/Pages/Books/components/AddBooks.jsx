@@ -13,6 +13,7 @@ import {
   Form,
   Progress,
   CardImg,
+  Label,
 } from "reactstrap";
 import routes from "../../../Config/routes";
 
@@ -131,6 +132,7 @@ class PostNews extends Component {
               </div>
             </Col>
             <Col md={4} sm={12} xs={12}>
+              <Label>Background Image</Label>
               <FileUploader
                 accept="image/*"
                 name="image"
@@ -145,6 +147,7 @@ class PostNews extends Component {
               {this.state.imageURL && <CardImg src={this.state.imageURL} />}
             </Col>
             <Col md={4} sm={12} xs={12}>
+              <Label>PDF Upload</Label>
               <FileUploader
                 accept="pdf/*"
                 name="pdf"

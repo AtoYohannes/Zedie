@@ -4,8 +4,8 @@ import {
   coverimage1,
   coverimage2,
   coverimage3,
+  coverimage4,
 } from "../../../Assets/coverImages";
-import { entertaiment20 } from "../../../Assets/images";
 import firebase from "../../../Config/Firebase";
 
 const backgroundImages = [
@@ -19,7 +19,7 @@ const backgroundImages = [
     backgroundimage: coverimage3,
   },
   {
-    backgroundimage: entertaiment20,
+    backgroundimage: coverimage4,
   },
 ];
 

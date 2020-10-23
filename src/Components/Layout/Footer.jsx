@@ -24,26 +24,11 @@ const Footer = () => {
               {" "}
               <Translate className="translate" content="Categories" />
             </Nav>
-            <Link to={{ pathname: routes.news }}>
-              <Nav className="footerTexts">
-                {" "}
-                <Translate className="translate" content="news" />
-              </Nav>
-            </Link>
-            <Link to={{ pathname: routes.writingChallenge }}>
-              <Nav className="footerTexts">
-                <Translate className="translate" content="CinemaS" />
-              </Nav>
-            </Link>
+
             <Link to={{ pathname: routes.books }}>
               <Nav className="footerTexts">
                 {" "}
                 <Translate className="translate" content="books" />
-              </Nav>
-            </Link>
-            <Link to={{ pathname: routes.directories }}>
-              <Nav className="footerTexts">
-                <Translate className="translate" content="directories" />
               </Nav>
             </Link>
           </Col>

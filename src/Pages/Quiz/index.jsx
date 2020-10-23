@@ -25,14 +25,14 @@ const QuizesCategories = () => {
             to={{
               pathname: routes.levels,
               state: {
-                category: "Technology",
+                category: "ICT",
               },
             }}
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={technology} />
               <CardBody align="center">
-                <h6>Technology</h6>
+                <h6>ICT</h6>
               </CardBody>
             </Card>
           </Link>
@@ -93,14 +93,14 @@ const QuizesCategories = () => {
             to={{
               pathname: routes.levels,
               state: {
-                category: "Algorithms",
+                category: "History",
               },
             }}
           >
             <Card className="border-0 moviesContainer zoom mb-5">
               <CardImg src={algorithms} />
               <CardBody align="center">
-                <h6>Algorithms</h6>
+                <h6>History</h6>
               </CardBody>
             </Card>
           </Link>

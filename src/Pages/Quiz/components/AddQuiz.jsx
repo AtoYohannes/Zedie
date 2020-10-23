@@ -138,11 +138,11 @@ class AddQuiz extends Component {
                           type="select"
                         >
                           <option>Select From the ones Below</option>
-                          <option>Technology</option>
+                          <option>ICT</option>
                           <option>Maths</option>
                           <option>English</option>
                           <option>Amharic</option>
-                          <option>Algorithms</option>
+                          <option>History</option>
                         </Input>
                       </FormGroup>
                     </Col>
